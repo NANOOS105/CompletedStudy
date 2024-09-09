@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="RPA05__해외카드_BillingReport" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1324,4011.2" sap2010:WorkflowViewState.IdRef="RPA05__해외카드_BillingReport_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="RPA05__해외카드_BillingReport" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1324,4563.2" sap2010:WorkflowViewState.IdRef="RPA05__해외카드_BillingReport_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ss="clr-namespace:System.Security;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -44,6 +44,10 @@
       <x:String>UiPath.Excel</x:String>
       <x:String>UiPath.Excel.Activities</x:String>
       <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.Mail</x:String>
+      <x:String>UiPath.Mail.SMTP.Activities</x:String>
+      <x:String>UiPath.Mail.Activities</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -113,9 +117,12 @@
       <AssemblyReference>System.Linq.Parallel</AssemblyReference>
       <AssemblyReference>System.Collections.Immutable</AssemblyReference>
       <AssemblyReference>System.Linq.Queryable</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities.Design</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="RPA05__해외카드_BillingReport" sap:VirtualizedContainerService.HintSize="654.4,3946.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="RPA05__해외카드_BillingReport" sap:VirtualizedContainerService.HintSize="654.4,4498.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="strRefamount" />
       <Variable x:TypeArguments="x:Decimal" Name="declTotalamount" />
@@ -435,12 +442,60 @@
         </If.Else>
       </If>
     </Sequence>
-    <ui:AddDataRow ArrayRow="[{&quot;-----------------------------&quot;}]" DataRow="{x:Null}" DataTable="[dt메모장가공]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="592,220" sap2010:WorkflowViewState.IdRef="AddDataRow_2" />
+    <ui:AddDataRow ArrayRow="[{&quot;-----------------------------&quot;}]" DataRow="{x:Null}" DataTable="[dt메모장가공]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="592,220" sap2010:WorkflowViewState.IdRef="AddDataRow_2">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:AddDataRow>
     <ui:AddDataRow ArrayRow="[{&quot;Total amount:     $&quot;+declTotalamount.ToString}]" DataRow="{x:Null}" DataTable="[dt메모장가공]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="592,220" sap2010:WorkflowViewState.IdRef="AddDataRow_4" />
     <ui:AddDataRow ArrayRow="[{&quot;Ref. amount:     $&quot;+str총합}]" DataRow="{x:Null}" DataTable="[dt메모장가공]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="592,220" sap2010:WorkflowViewState.IdRef="AddDataRow_5" />
     <ui:AddDataRow ArrayRow="[{str결과,&quot;&quot;}]" DataRow="{x:Null}" DataTable="[dt메모장가공]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="592,220" sap2010:WorkflowViewState.IdRef="AddDataRow_6" />
     <ui:OutputDataTable DataTable="[dt메모장가공]" DisplayName="Output Data Table as Text" sap:VirtualizedContainerService.HintSize="592,112.8" sap2010:WorkflowViewState.IdRef="OutputDataTable_1" Text="[str결과]" />
     <ui:WriteTextFile File="{x:Null}" DisplayName="Write Text File" FileName="프로젝트\RPA05_ 해외카드 BillingReport 박희수\Data\Billing Report.txt" sap:VirtualizedContainerService.HintSize="592,166.4" sap2010:WorkflowViewState.IdRef="WriteTextFile_4" Text="[str결과]" />
+    <Sequence DisplayName="결과 메일 발송 | Sequence" sap:VirtualizedContainerService.HintSize="592,552" sap2010:WorkflowViewState.IdRef="Sequence_12">
+      <Sequence.Variables>
+        <Variable x:TypeArguments="x:String" Name="str파일첨부" />
+        <Variable x:TypeArguments="x:String" Name="strName" />
+        <Variable x:TypeArguments="ss:SecureString" Name="sstrPW" />
+      </Sequence.Variables>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:GetRobotCredential TimeoutMS="{x:Null}" sap2010:Annotation.AnnotationText="strName&#xA;sstrPW" AssetName="Gmail_UiPath" CacheStrategy="None" DisplayName="Get Credential" FolderPath="heesu105@gmail.com's workspace" sap:VirtualizedContainerService.HintSize="433.6,100.8" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[sstrPW]" Username="[strName]">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:GetRobotCredential>
+      <Assign sap2010:Annotation.AnnotationText="경로입력" sap:VirtualizedContainerService.HintSize="433.6,144.8" sap2010:WorkflowViewState.IdRef="Assign_9">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[str파일첨부]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">프로젝트\RPA05_ 해외카드 BillingReport 박희수\Data\Billing Report.txt</InArgument>
+        </Assign.Value>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </Assign>
+      <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" ContinueOnError="{x:Null}" From="{x:Null}" MailMessage="{x:Null}" Name="{x:Null}" Password="{x:Null}" ReplyTo="{x:Null}" Result="{x:Null}" TimeoutMS="{x:Null}" UseOAuth="{x:Null}" Body="선생님,,안녕하세요 &#xD;&#xA;이게 제 한계입니다......." DisplayName="Send SMTP Mail Message" Email="[strName]" EnableSSL="True" sap:VirtualizedContainerService.HintSize="433.6,185.6" sap2010:WorkflowViewState.IdRef="SendMail_1" IgnoreCRL="False" IsBodyHtml="False" Port="587" SecureConnection="Auto" SecurePassword="[sstrPW]" Server="smtp.gmail.com" Subject="RPA05_ 해외카드 BillingReport 박희수" To="rpa.jian23@gmail.com">
+        <ui:SendMail.Files>
+          <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
+            <InArgument x:TypeArguments="x:String">[str파일첨부]</InArgument>
+          </scg:List>
+        </ui:SendMail.Files>
+      </ui:SendMail>
+    </Sequence>
     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="592,48" sap2010:WorkflowViewState.IdRef="LogMessage_2" Message="[&quot;RPA05_ 해외카드 BillingReport 본인이름 끝 &gt;&gt;&gt;&gt;&gt;&quot;]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
