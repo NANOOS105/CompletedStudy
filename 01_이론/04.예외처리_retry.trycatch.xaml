@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="_04_예외처리_retry_trycatch" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1054.4,1864" sap2010:WorkflowViewState.IdRef="_04_예외처리_retry_trycatch_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="_04_예외처리_retry_trycatch" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1054.4,2080" sap2010:WorkflowViewState.IdRef="_04_예외처리_retry_trycatch_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -104,7 +104,7 @@
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="" DisplayName="_04_예외처리_retry_trycatch" sap:VirtualizedContainerService.HintSize="769.6,1799.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="" DisplayName="_04_예외처리_retry_trycatch" sap:VirtualizedContainerService.HintSize="769.6,2015.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Boolean" Name="bl헤드라인버튼여부" />
       <Variable x:TypeArguments="x:Int32" Name="idx" />
@@ -264,7 +264,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:CommentOut>
-    <Sequence DisplayName="try catch | Sequence" sap:VirtualizedContainerService.HintSize="707.2,1574.4" sap2010:WorkflowViewState.IdRef="Sequence_9">
+    <Sequence DisplayName="try catch | Sequence" sap:VirtualizedContainerService.HintSize="707.2,1790.4" sap2010:WorkflowViewState.IdRef="Sequence_9">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -277,28 +277,29 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </Sequence>
-      <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: 경제 : 네이버 뉴스" sap:VirtualizedContainerService.HintSize="644.8,1316.8" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="DebuggerApi" ScopeGuid="c005b997-390b-42e1-bfea-5ef0dcf0dcd9" Version="V2" WindowResize="Maximize">
+      <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: 경제 : 네이버 뉴스" sap:VirtualizedContainerService.HintSize="644.8,1532.8" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="DebuggerApi" ScopeGuid="c005b997-390b-42e1-bfea-5ef0dcf0dcd9" Version="V2" WindowResize="Maximize">
         <uix:NApplicationCard.Body>
           <ActivityAction x:TypeArguments="x:Object">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="실행" sap:VirtualizedContainerService.HintSize="611.2,1076.8" sap2010:WorkflowViewState.IdRef="Sequence_15">
+            <Sequence DisplayName="실행" sap:VirtualizedContainerService.HintSize="611.2,1292.8" sap2010:WorkflowViewState.IdRef="Sequence_15">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <uix:NGoToUrl ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="일부러 예외 발생| Go To URL" sap:VirtualizedContainerService.HintSize="548.8,114.4" sap2010:WorkflowViewState.IdRef="NGoToUrl_1" InScope="{x:Null}" InUiElement="{x:Null}" Timeout="{x:Null}" Url="www.naver.com" Version="V3" />
-              <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="548.8,872" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+              <TryCatch sap2010:Annotation.AnnotationText="Try-Catch에서 예외를 System.Exception으로 크게 잡아서 에러 메시지를 남기는 방식은 실무에서 많이 사용되는 접근 방식이며, 실제로 매우 효율적일 수 있습니다. 특히, 자동화 작업이 예외 상황에 대한 세부적인 대응보다 안정적으로 실행을 지속하는 것이 더 중요한 경우에는 이렇게 큰 범위의 예외를 잡아서 일괄적으로 처리하는 방식이 많이 사용됩니다.Try-Catch에서 예외를 System.Exception으로 크게 잡아서 에러 메시지를 남기는 방식은 실무에서 많이 사용되는 접근 방식이며, 실제로 매우 효율적일 수 있습니다. 특히, 자동화 작업이 예외 상황에 대한 세부적인 대응보다 안정적으로 실행을 지속하는 것이 더 중요한 경우에는 이렇게 큰 범위의 예외를 잡아서 일괄적으로 처리하는 방식이 많이 사용됩니다." DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="548.8,1088" sap2010:WorkflowViewState.IdRef="TryCatch_1">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
                 <TryCatch.Try>
-                  <Sequence sap:VirtualizedContainerService.HintSize="512,616" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                  <Sequence sap:VirtualizedContainerService.HintSize="512,692" sap2010:WorkflowViewState.IdRef="Sequence_18">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -351,15 +352,21 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                     </uix:NCheckState>
-                    <If Condition="[bl헤드라인버튼여부 = False]" sap:VirtualizedContainerService.HintSize="449.6,468.8" sap2010:WorkflowViewState.IdRef="If_1">
+                    <If Condition="[bl헤드라인버튼여부 = False]" sap:VirtualizedContainerService.HintSize="449.6,544.8" sap2010:WorkflowViewState.IdRef="If_1">
                       <If.Then>
-                        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,202.4" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,278.4" sap2010:WorkflowViewState.IdRef="Sequence_19">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <Throw Exception="[New SystemException(&quot;헤드라인 엘리먼트 요소 찾지 못함&quot;)]" sap:VirtualizedContainerService.HintSize="353.6,113.6" sap2010:WorkflowViewState.IdRef="Throw_1" />
+                          <Throw sap2010:Annotation.AnnotationText="Throw는 의도적으로 예외를 발생시키는 액티비티로, 프로세스에서 특정 조건이나 상황이 발생했을 때 명시적으로 오류를 발생시켜 예외 처리를 하도록 할 때 사용됩니다." Exception="[New SystemException(&quot;헤드라인 엘리먼트 요소 찾지 못함&quot;)]" sap:VirtualizedContainerService.HintSize="353.6,189.6" sap2010:WorkflowViewState.IdRef="Throw_1">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </Throw>
                         </Sequence>
                       </If.Then>
                       <If.Else>
@@ -386,7 +393,14 @@
                       <ActivityAction.Argument>
                         <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
                       </ActivityAction.Argument>
-                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334.4,144" sap2010:WorkflowViewState.IdRef="LogMessage_2" Message="[&quot;[내가만든 에러 확인] check app state 헤드라인요소 없음&quot; + exception.Message]" />
+                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="200,24.8" sap2010:WorkflowViewState.IdRef="LogMessage_2" Message="[&quot;[내가만든 에러 확인] check app state 헤드라인요소 없음&quot; + exception.Message]">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </ui:LogMessage>
                     </ActivityAction>
                   </Catch>
                 </TryCatch.Catches>

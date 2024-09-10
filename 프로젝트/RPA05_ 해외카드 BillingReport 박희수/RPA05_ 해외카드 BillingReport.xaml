@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="RPA05__해외카드_BillingReport" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="878.4,4068" sap2010:WorkflowViewState.IdRef="RPA05__해외카드_BillingReport_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ss="clr-namespace:System.Security;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="RPA05__해외카드_BillingReport" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1054.4,3865.6" sap2010:WorkflowViewState.IdRef="RPA05__해외카드_BillingReport_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ss="clr-namespace:System.Security;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -122,7 +122,7 @@
       <AssemblyReference>UiPath.Mail.Activities.Design</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="RPA05__해외카드_BillingReport" sap:VirtualizedContainerService.HintSize="654.4,4003.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="RPA05__해외카드_BillingReport" sap:VirtualizedContainerService.HintSize="654.4,3800.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="strRefamount" />
       <Variable x:TypeArguments="x:Decimal" Name="declTotalamount" />
@@ -134,6 +134,7 @@
       <Variable x:TypeArguments="x:Int32" Name="idx끝" />
       <Variable x:TypeArguments="x:String" Name="str총합" />
       <Variable x:TypeArguments="x:String" Name="str메모장원본" />
+      <Variable x:TypeArguments="x:String" Name="strText" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -148,8 +149,26 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:LogMessage>
-    <ui:ReadTextFile Content="[str메모장원본]" ContinueOnError="{x:Null}" DisplayName="메모장 읽기 | Read Text File" Encoding="{x:Null}" File="{x:Null}" FileName="프로젝트\RPA05_ 해외카드 BillingReport 박희수\Data\Billing.txt" sap:VirtualizedContainerService.HintSize="592,112.8" sap2010:WorkflowViewState.IdRef="ReadTextFile_1" Result="{x:Null}" />
-    <ui:MultipleAssign DisplayName="메모장 가공 | Multiple Assign" sap:VirtualizedContainerService.HintSize="592,429.6" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+    <ui:ReadTextFile Content="[str메모장원본]" ContinueOnError="{x:Null}" DisplayName="str메모장원본 | Read Text File" Encoding="{x:Null}" File="{x:Null}" FileName="프로젝트\RPA05_ 해외카드 BillingReport 박희수\Data\Billing.txt" sap:VirtualizedContainerService.HintSize="592,112.8" sap2010:WorkflowViewState.IdRef="ReadTextFile_1" Result="{x:Null}" />
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="592,56.8" sap2010:WorkflowViewState.IdRef="CommentOut_3">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="무시된 액티비티" sap:VirtualizedContainerService.HintSize="416,386.4" sap2010:WorkflowViewState.IdRef="Sequence_14">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:TextToLeftRight DisplayName="Text to Left/Right" FullText="[str메모장원본]" sap:VirtualizedContainerService.HintSize="353.6,297.6" sap2010:WorkflowViewState.IdRef="TextToLeftRight_1" Separator="DATE" SeparatorKey="Custom" TextToLeft="[strText]" TextToRight="[str메모장원본]" />
+        </Sequence>
+      </ui:CommentOut.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:CommentOut>
+    <ui:MultipleAssign DisplayName="메모장 가공 | Multiple Assign" sap:VirtualizedContainerService.HintSize="592,56.8" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
@@ -234,6 +253,12 @@
           </ui:AssignOperation>
         </scg:List>
       </ui:MultipleAssign.AssignOperations>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
     </ui:MultipleAssign>
     <ui:GenerateDataTable ColumnSizes="{x:Null}" sap2010:Annotation.AnnotationText="[REFERENCE NUMBER,INSTRUCTION TYPE  ,REASON*,PAYMENT,AMOUNT    TYPE**   ,ORIGINAL REF NBR      DATE      TIME,DATE,    " CSVParsing="False" ContinueOnError="{x:Null}" DataTable="[dt메모장]" DisplayName="txt파일 dt화 시키기 | Generate Data Table From Text" sap:VirtualizedContainerService.HintSize="592,164.8" sap2010:WorkflowViewState.IdRef="GenerateDataTable_4" Input="[str메모장]" NewLineSeparator="[vbCrLf]" Positions="{x:Null}" UseColumnHeader="True">
       <ui:GenerateDataTable.ColumnSeparators>
@@ -454,6 +479,14 @@
     <ui:AddDataRow ArrayRow="[{&quot;Ref. amount:     $&quot;+str총합}]" DataRow="{x:Null}" DataTable="[dt메모장가공]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="592,220" sap2010:WorkflowViewState.IdRef="AddDataRow_5" />
     <ui:AddDataRow ArrayRow="[{str결과,&quot;&quot;}]" DataRow="{x:Null}" DataTable="[dt메모장가공]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="592,220" sap2010:WorkflowViewState.IdRef="AddDataRow_6" />
     <ui:OutputDataTable DataTable="[dt메모장가공]" DisplayName="Output Data Table as Text" sap:VirtualizedContainerService.HintSize="592,112.8" sap2010:WorkflowViewState.IdRef="OutputDataTable_1" Text="[str결과]" />
+    <Assign sap:VirtualizedContainerService.HintSize="592,113.6" sap2010:WorkflowViewState.IdRef="Assign_10">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[str결과]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String" xml:space="preserve">[str결과.Replace(",","        ")]</InArgument>
+      </Assign.Value>
+    </Assign>
     <ui:WriteTextFile File="{x:Null}" DisplayName="Write Text File" FileName="프로젝트\RPA05_ 해외카드 BillingReport 박희수\Data\Billing Report.txt" sap:VirtualizedContainerService.HintSize="592,166.4" sap2010:WorkflowViewState.IdRef="WriteTextFile_4" Text="[str결과]" />
     <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="592,56.8" sap2010:WorkflowViewState.IdRef="CommentOut_2">
       <ui:CommentOut.Body>
