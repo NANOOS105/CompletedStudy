@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="RPA06_부동산공시가격_박희수" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1054.4,4532.8" sap2010:WorkflowViewState.IdRef="RPA06_부동산공시가격_박희수_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ue="clr-namespace:UiPath.Excel;assembly=UiPath.Excel.Activities" xmlns:ueab="clr-namespace:UiPath.Excel.Activities.Business;assembly=UiPath.Excel.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="RPA06_부동산공시가격_박희수" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1054.4,644.8" sap2010:WorkflowViewState.IdRef="RPA06_부동산공시가격_박희수_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.ComponentModel;assembly=System.ComponentModel.TypeConverter" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -45,6 +45,17 @@
       <x:String>System.Security</x:String>
       <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
       <x:String>UiPath.UIAutomationNext.Models.ExtractData</x:String>
+      <x:String>System.Activities.Runtime.Collections</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+      <x:String>System.Windows</x:String>
+      <x:String>System.Windows.Media.Animation</x:String>
+      <x:String>System.Windows.Media</x:String>
+      <x:String>System.Windows.Threading</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.Mail</x:String>
+      <x:String>UiPath.Mail.SMTP.Activities</x:String>
+      <x:String>UiPath.Mail.Activities</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -108,22 +119,32 @@
       <AssemblyReference>System.Data.SqlClient</AssemblyReference>
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
       <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Windows.Presentation</AssemblyReference>
+      <AssemblyReference>System.Linq.Async.Queryable</AssemblyReference>
+      <AssemblyReference>System.Linq.Parallel</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Linq.Queryable</AssemblyReference>
+      <AssemblyReference>System.CodeDom</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities.Design</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <sap:WorkflowViewStateService.ViewState>
     <scg:Dictionary x:TypeArguments="x:String, x:Object">
-      <x:Boolean x:Key="ShouldExpandAll">True</x:Boolean>
+      <x:Boolean x:Key="ShouldExpandAll">False</x:Boolean>
+      <x:Boolean x:Key="ShouldCollapseAll">True</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence DisplayName="RPA06_부동산공시가격_박희수" sap:VirtualizedContainerService.HintSize="796,4468" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="RPA06_부동산공시가격_박희수" sap:VirtualizedContainerService.HintSize="512,364" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Boolean" Name="bl파일확인" />
       <Variable x:TypeArguments="x:String" Name="str오늘날짜" />
-      <Variable x:TypeArguments="sd:DataTable" Name="dt엑셀회원목록">
-        <Variable.Default>
-          <VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="New System.Data.DataTable" />
-        </Variable.Default>
-      </Variable>
+      <Variable x:TypeArguments="sd:DataTable" Name="dt엑셀회원목록" />
       <Variable x:TypeArguments="x:String" Name="str대분류" />
       <Variable x:TypeArguments="x:String" Name="str중분류" />
       <Variable x:TypeArguments="x:String" Name="str소분류" />
@@ -136,13 +157,23 @@
       <Variable x:TypeArguments="x:Int32" Name="choSungIndex" />
       <Variable x:TypeArguments="x:String" Name="str초성" />
       <Variable x:TypeArguments="x:String" Name="str공동주택가격" />
+      <Variable x:TypeArguments="scg:IEnumerable(ui:UiElement)" Name="children단지명" />
+      <Variable x:TypeArguments="x:String" Name="str공시기준일" />
+      <Variable x:TypeArguments="x:String" Name="str동명없음" />
+      <Variable x:TypeArguments="x:String" Name="str동추출글자" />
+      <Variable x:TypeArguments="x:String" Name="strchilderen단지명" />
+      <Variable x:TypeArguments="scg:IEnumerable(ui:UiElement)" Name="children동" />
+      <Variable x:TypeArguments="x:String" Name="strchilderen동" />
+      <Variable x:TypeArguments="scg:IEnumerable(ui:UiElement)" Name="children호" />
+      <Variable x:TypeArguments="x:String" Name="strchilderen호" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsPinned">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="733.6,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_1" Message="[&quot;RPA06_부동산공시가격 시작 &gt;&gt;&gt;&gt;&quot;]">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="449.6,56.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Message="[&quot;RPA06_부동산공시가격 시작 &gt;&gt;&gt;&gt;&quot;]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -150,18 +181,18 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:LogMessage>
-    <Sequence DisplayName="파일 생성 | Sequence" sap:VirtualizedContainerService.HintSize="733.6,56.8" sap2010:WorkflowViewState.IdRef="Sequence_7">
+    <Sequence DisplayName="파일 생성 | Sequence" sap:VirtualizedContainerService.HintSize="449.6,56.8" sap2010:WorkflowViewState.IdRef="Sequence_7">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-          <x:Boolean x:Key="IsPinned">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <ui:FileExistsX DisplayName="File Exists" Exists="[bl파일확인]" sap:VirtualizedContainerService.HintSize="387.2,56.8" sap2010:WorkflowViewState.IdRef="FileExistsX_1" Path="[&quot;프로젝트\RPA06_부동산공시가격\Data\부동산공시가격_&quot;+ str오늘날짜 + &quot;_박희수.xlsx&quot;]">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-            <x:Boolean x:Key="IsPinned">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </ui:FileExistsX>
@@ -169,7 +200,7 @@
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-            <x:Boolean x:Key="IsPinned">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
         <If.Then>
@@ -203,94 +234,48 @@
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-            <x:Boolean x:Key="IsPinned">True</x:Boolean>
-          </scg:Dictionary>
-        </sap:WorkflowViewStateService.ViewState>
-      </Assign>
-      <ui:CopyFile ContinueOnError="{x:Null}" Destination="[&quot;프로젝트\RPA06_부동산공시가격\Data\부동산공시가격_&quot;+ str오늘날짜 + &quot;_박희수.xlsx&quot;]" DisplayName="Copy File" sap:VirtualizedContainerService.HintSize="387.2,178.4" sap2010:WorkflowViewState.IdRef="CopyFile_1" Overwrite="True" Path="프로젝트\RPA06_부동산공시가격\Data\부동산공시가격_Temp.xlsx">
-        <sap:WorkflowViewStateService.ViewState>
-          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             <x:Boolean x:Key="IsPinned">False</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-      </ui:CopyFile>
-    </Sequence>
-    <Sequence DisplayName="Result 시트 생성 | Sequence" sap:VirtualizedContainerService.HintSize="733.6,225.6" sap2010:WorkflowViewState.IdRef="Sequence_12">
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-          <x:Boolean x:Key="IsPinned">False</x:Boolean>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-      <ueab:ExcelProcessScopeX DisplayAlerts="{x:Null}" ExistingProcessAction="{x:Null}" FileConflictResolution="{x:Null}" LaunchMethod="{x:Null}" LaunchTimeout="{x:Null}" MacroSettings="{x:Null}" ProcessMode="{x:Null}" ShowExcelWindow="{x:Null}" DisplayName="Excel Process Scope" sap:VirtualizedContainerService.HintSize="387.2,56.8" sap2010:WorkflowViewState.IdRef="ExcelProcessScopeX_1">
-        <ueab:ExcelProcessScopeX.Body>
-          <ActivityAction x:TypeArguments="ui:IExcelProcess">
-            <ActivityAction.Argument>
-              <DelegateInArgument x:TypeArguments="ui:IExcelProcess" Name="ExcelProcessScopeTag" />
-            </ActivityAction.Argument>
-            <Sequence sap2010:Annotation.AnnotationText="" DisplayName="실행" sap:VirtualizedContainerService.HintSize="592,664" sap2010:WorkflowViewState.IdRef="Sequence_9">
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-              <ueab:ExcelApplicationCard Password="{x:Null}" ReadFormatting="{x:Null}" DisplayName="Use Excel File" sap:VirtualizedContainerService.HintSize="529.6,544" sap2010:WorkflowViewState.IdRef="ExcelApplicationCard_1" ResizeWindow="None" WorkbookPath="[&quot;프로젝트\RPA06_부동산공시가격\Data\부동산공시가격_&quot;+ str오늘날짜 + &quot;_박희수.xlsx&quot;]">
-                <ueab:ExcelApplicationCard.Body>
-                  <ActivityAction x:TypeArguments="ue:IWorkbookQuickHandle">
-                    <ActivityAction.Argument>
-                      <DelegateInArgument x:TypeArguments="ue:IWorkbookQuickHandle" Name="Excel" />
-                    </ActivityAction.Argument>
-                    <Sequence DisplayName="실행" sap:VirtualizedContainerService.HintSize="496,251.2" sap2010:WorkflowViewState.IdRef="Sequence_10">
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                      <ueab:DuplicateSheetX DisplayName="Duplicate Sheet" sap:VirtualizedContainerService.HintSize="433.6,162.4" sap2010:WorkflowViewState.IdRef="DuplicateSheetX_2" NewSheetName="Result" SheetToDuplicate="[Excel.Sheet(&quot;회원목록&quot;)]" />
-                    </Sequence>
-                  </ActivityAction>
-                </ueab:ExcelApplicationCard.Body>
-              </ueab:ExcelApplicationCard>
-            </Sequence>
-          </ActivityAction>
-        </ueab:ExcelProcessScopeX.Body>
+      </Assign>
+      <ui:CopyFile ContinueOnError="{x:Null}" Destination="[&quot;프로젝트\RPA06_부동산공시가격\Data\부동산공시가격_&quot;+ str오늘날짜 + &quot;_박희수.xlsx&quot;]" DisplayName="Copy File" sap:VirtualizedContainerService.HintSize="387.2,187.2" sap2010:WorkflowViewState.IdRef="CopyFile_1" Overwrite="True" Path="프로젝트\RPA06_부동산공시가격\Data\부동산공시가격_Temp.xlsx">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             <x:Boolean x:Key="IsPinned">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-      </ueab:ExcelProcessScopeX>
+      </ui:CopyFile>
       <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[dt엑셀회원목록]" DisplayName="엑셀파일 DT화 | Read Range Workbook" sap:VirtualizedContainerService.HintSize="387.2,48" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="회원목록" WorkbookPath="프로젝트\RPA06_부동산공시가격\Data\부동산공시가격_20240910_박희수.xlsx">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-            <x:Boolean x:Key="IsPinned">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </ui:ReadRange>
     </Sequence>
-    <Sequence sap:VirtualizedContainerService.HintSize="733.6,3756.8" sap2010:WorkflowViewState.IdRef="Sequence_13">
+    <Sequence DisplayName="DT 추출 및 가공 | Sequence" sap:VirtualizedContainerService.HintSize="449.6,56.8" sap2010:WorkflowViewState.IdRef="Sequence_13">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dt엑셀회원목록]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="671.2,3636" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+      <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dt엑셀회원목록]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="896,2513.6" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
         <ui:ForEachRow.Body>
           <ActivityAction x:TypeArguments="sd:DataRow">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="본문" sap:VirtualizedContainerService.HintSize="637.6,3447.2" sap2010:WorkflowViewState.IdRef="Sequence_15">
+            <Sequence DisplayName="본문" sap:VirtualizedContainerService.HintSize="862.4,2324.8" sap2010:WorkflowViewState.IdRef="Sequence_15">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="575.2,336.8" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+              <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="800,56.8" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
                 <ui:MultipleAssign.AssignOperations>
                   <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
                     <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
@@ -346,13 +331,19 @@
                         <OutArgument x:TypeArguments="x:String">[str기준가격]</OutArgument>
                       </ui:AssignOperation.To>
                       <ui:AssignOperation.Value>
-                        <InArgument x:TypeArguments="x:String">[CurrentRow("기준가격").ToString.Trim]</InArgument>
+                        <InArgument x:TypeArguments="x:String">[CurrentRow("기준가격(￦)").ToString.Trim]</InArgument>
                       </ui:AssignOperation.Value>
                     </ui:AssignOperation>
                   </scg:List>
                 </ui:MultipleAssign.AssignOperations>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
               </ui:MultipleAssign>
-              <ui:MultipleAssign sap2010:Annotation.AnnotationText="" DisplayName="초성 계산 | Multiple Assign" sap:VirtualizedContainerService.HintSize="575.2,273.6" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+              <ui:MultipleAssign sap2010:Annotation.AnnotationText="" DisplayName="초성 계산 | Multiple Assign" sap:VirtualizedContainerService.HintSize="800,88" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
                 <ui:MultipleAssign.AssignOperations>
                   <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
                     <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_8">
@@ -392,217 +383,1280 @@
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </ui:MultipleAssign>
-              <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: 부동산공시가격 알리미" sap:VirtualizedContainerService.HintSize="575.2,2748" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="60498e6c-1372-42a2-8775-80920e0ff8fe" Version="V2" WindowResize="Maximize">
+              <uix:NApplicationCard AttachMode="SingleWindow" CloseMode="Never" DisplayName="Use Browser Chrome: 부동산공시가격 알리미" sap:VirtualizedContainerService.HintSize="800,2043.2" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="IfNotOpen" ScopeGuid="60498e6c-1372-42a2-8775-80920e0ff8fe" Version="V2" WindowResize="Maximize">
                 <uix:NApplicationCard.Body>
                   <ActivityAction x:TypeArguments="x:Object">
                     <ActivityAction.Argument>
                       <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
                     </ActivityAction.Argument>
-                    <Sequence DisplayName="실행" sap:VirtualizedContainerService.HintSize="541.6,2508" sap2010:WorkflowViewState.IdRef="Sequence_14">
-                      <Sequence.Variables>
-                        <Variable x:TypeArguments="x:String" Name="str공시기준일" />
-                      </Sequence.Variables>
+                    <Sequence DisplayName="실행" sap:VirtualizedContainerService.HintSize="766.4,1794.4" sap2010:WorkflowViewState.IdRef="Sequence_14">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click '인천광역시'" sap:VirtualizedContainerService.HintSize="479.2,225.6" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="60498e6c-1372-42a2-8775-80920e0ff8fe" Version="V3">
-                        <uix:NClick.Target>
-                          <uix:TargetAnchorable BrowserURL="https://www.realtyprice.kr/notice/town/nfSiteLink.htm" CVScreenId="ef834db7-b9eb-4fd6-8db2-a57211fcec72" CvTextArea="847, 854, 82, 20" CvTextArgument="2ltgqaj" CvType="Text" DesignTimeRectangle="848, 853, 140, 23" DesignTimeScaleFactor="1.25" FullSelectorArgument="&lt;webctrl id='sido' tag='SELECT' /&gt;&lt;webctrl aaname='인천광역시' tag='OPTION' /&gt;" FuzzySelectorArgument="&lt;webctrl id='sido' tag='SELECT' /&gt;&lt;webctrl aaname='인천광역시' tag='OPTION' type='' class='' check:innerText='인천광역시' /&gt;" Guid="a8b5ac74-6eda-4276-a2e5-97139742c0d6" InformativeScreenshot="b9df3eed3b7dfe152b9504dde27486de.png" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='NOTICE' title='부동산공시가격 알리미' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
-                        </uix:NClick.Target>
-                        <uix:NClick.VerifyOptions>
-                          <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
-                            <uix:VerifyExecutionOptions.Retry>
-                              <InArgument x:TypeArguments="x:Boolean" />
-                            </uix:VerifyExecutionOptions.Retry>
-                            <uix:VerifyExecutionOptions.Timeout>
-                              <InArgument x:TypeArguments="x:Double" />
-                            </uix:VerifyExecutionOptions.Timeout>
-                          </uix:VerifyExecutionOptions>
-                        </uix:NClick.VerifyOptions>
-                      </uix:NClick>
-                      <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click '연수구'" sap:VirtualizedContainerService.HintSize="479.2,225.6" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="60498e6c-1372-42a2-8775-80920e0ff8fe" Version="V3">
-                        <uix:NClick.Target>
-                          <uix:TargetAnchorable BrowserURL="https://www.realtyprice.kr/notice/town/nfSiteLink.htm" CVScreenId="d6196e76-98bd-4bb5-b390-60f783ee22f7" CvTextArea="1030, 946, 50, 20" CvTextArgument="1+7" CvType="Text" DesignTimeRectangle="1031, 945, 139, 23" DesignTimeScaleFactor="1.25" FullSelectorArgument="&lt;webctrl id='sigungu' tag='SELECT' /&gt;&lt;webctrl aaname='연수구' tag='OPTION' /&gt;" FuzzySelectorArgument="&lt;webctrl id='sigungu' tag='SELECT' /&gt;&lt;webctrl aaname='연수구' tag='OPTION' type='' class='' check:innerText='연수구' /&gt;" Guid="5de6695e-2791-4e51-bc45-db868579492e" InformativeScreenshot="787bacb5ed2c76e5429177463d303480.png" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='NOTICE' title='부동산공시가격 알리미' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
-                        </uix:NClick.Target>
-                        <uix:NClick.VerifyOptions>
-                          <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
-                            <uix:VerifyExecutionOptions.Retry>
-                              <InArgument x:TypeArguments="x:Boolean" />
-                            </uix:VerifyExecutionOptions.Retry>
-                            <uix:VerifyExecutionOptions.Timeout>
-                              <InArgument x:TypeArguments="x:Double" />
-                            </uix:VerifyExecutionOptions.Timeout>
-                          </uix:VerifyExecutionOptions>
-                        </uix:NClick.VerifyOptions>
-                      </uix:NClick>
-                      <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'ㅇ'" sap:VirtualizedContainerService.HintSize="479.2,225.6" sap2010:WorkflowViewState.IdRef="NClick_3" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="60498e6c-1372-42a2-8775-80920e0ff8fe" Version="V3">
-                        <uix:NClick.Target>
-                          <uix:TargetAnchorable BrowserURL="https://www.realtyprice.kr/notice/town/nfSiteLink.htm" CVScreenId="830a4b80-3bf8-436a-8512-756fea03dab4" CvTextArea="1214, 825, 12, 12" CvTextArgument="O" CvType="Text" DesignTimeRectangle="1213, 820, 40, 23" DesignTimeScaleFactor="1.25" FullSelectorArgument="&lt;webctrl id='initialword' tag='SELECT' /&gt;&lt;webctrl aaname='ㅇ' tag='OPTION' /&gt;" FuzzySelectorArgument="&lt;webctrl id='initialword' tag='SELECT' /&gt;&lt;webctrl aaname='ㅇ' tag='OPTION' type='' class='' check:innerText='ㅇ' /&gt;" Guid="3690b753-ab58-46e6-adc2-99ab81f58df1" InformativeScreenshot="fe48496ea00e5ac6603bcc1fa7ba9e7b.png" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='NOTICE' title='부동산공시가격 알리미' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
-                        </uix:NClick.Target>
-                        <uix:NClick.VerifyOptions>
-                          <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
-                            <uix:VerifyExecutionOptions.Retry>
-                              <InArgument x:TypeArguments="x:Boolean" />
-                            </uix:VerifyExecutionOptions.Retry>
-                            <uix:VerifyExecutionOptions.Timeout>
-                              <InArgument x:TypeArguments="x:Double" />
-                            </uix:VerifyExecutionOptions.Timeout>
-                          </uix:VerifyExecutionOptions>
-                        </uix:NClick.VerifyOptions>
-                      </uix:NClick>
-                      <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click '원인재로'" sap:VirtualizedContainerService.HintSize="479.2,225.6" sap2010:WorkflowViewState.IdRef="NClick_4" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="60498e6c-1372-42a2-8775-80920e0ff8fe" Version="V3">
-                        <uix:NClick.Target>
-                          <uix:TargetAnchorable BrowserURL="https://www.realtyprice.kr/notice/town/nfSiteLink.htm" CVScreenId="1c6c52e3-bb8b-42f7-b7ee-cb783fe524a4" CvTextArea="1295, 744, 66, 20" CvTextArgument="2OTHE" CvType="Text" DesignTimeRectangle="1296, 743, 189, 23" DesignTimeScaleFactor="1.25" FullSelectorArgument="&lt;webctrl id='road' tag='SELECT' /&gt;&lt;webctrl aaname='원인재로' tag='OPTION' /&gt;" FuzzySelectorArgument="&lt;webctrl id='road' tag='SELECT' /&gt;&lt;webctrl aaname='원인재로' tag='OPTION' type='' class='' check:innerText='원인재로' /&gt;" Guid="ab8bea4e-ec27-4b1c-91ca-49d8909eaa14" InformativeScreenshot="d54e968694ef937b34db3a65093c0863.png" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='NOTICE' title='부동산공시가격 알리미' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
-                        </uix:NClick.Target>
-                        <uix:NClick.VerifyOptions>
-                          <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
-                            <uix:VerifyExecutionOptions.Retry>
-                              <InArgument x:TypeArguments="x:Boolean" />
-                            </uix:VerifyExecutionOptions.Retry>
-                            <uix:VerifyExecutionOptions.Timeout>
-                              <InArgument x:TypeArguments="x:Double" />
-                            </uix:VerifyExecutionOptions.Timeout>
-                          </uix:VerifyExecutionOptions>
-                        </uix:NClick.VerifyOptions>
-                      </uix:NClick>
-                      <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click '건물번호 입력 단지명 입력 -'" sap:VirtualizedContainerService.HintSize="479.2,225.6" sap2010:WorkflowViewState.IdRef="NClick_5" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="60498e6c-1372-42a2-8775-80920e0ff8fe" Version="V3">
-                        <uix:NClick.Target>
-                          <uix:TargetAnchorable BrowserURL="https://www.realtyprice.kr/notice/town/nfSiteLink.htm" CVScreenId="d63d7be4-e79c-44ba-ac95-c9c4b49a0dd5" CvElementArea="1012, 672, 21, 21" CvType="RadioButton" DesignTimeRectangle="1016, 675, 16, 17" DesignTimeScaleFactor="1.25" ElementType="RadioButton" FullSelectorArgument="&lt;webctrl class='radio2' tag='INPUT' type='radio' /&gt;" FuzzySelectorArgument="&lt;webctrl class='radio2' tag='INPUT' type='radio' aaname='' /&gt;" Guid="52eb7090-6454-4408-bf2a-9e07e28ef7b8" InformativeScreenshot="5121a62976704b0669ea3017429b6475.png" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='NOTICE' title='부동산공시가격 알리미' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V4" Visibility="Interactive">
-                            <uix:TargetAnchorable.Anchors>
-                              <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
-                                <uix:Target DesignTimeRectangle="871, 677, 492, 15" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;form&amp;gt;div&amp;gt;span' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' tag='SPAN' class='' aaname=' &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9; 건물번호 입력 &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9; 단지명 입력 &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9; &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9; &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9; &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9; &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;' check:innerText='건물번호 입력  단지명 입력  -' /&gt;" Guid="d7327e35-e136-4ef6-b1df-0f4810959f11" SearchSteps="Selector, FuzzySelector" />
-                              </scg:List>
-                            </uix:TargetAnchorable.Anchors>
-                          </uix:TargetAnchorable>
-                        </uix:NClick.Target>
-                        <uix:NClick.VerifyOptions>
-                          <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
-                            <uix:VerifyExecutionOptions.Retry>
-                              <InArgument x:TypeArguments="x:Boolean" />
-                            </uix:VerifyExecutionOptions.Retry>
-                            <uix:VerifyExecutionOptions.Timeout>
-                              <InArgument x:TypeArguments="x:Double" />
-                            </uix:VerifyExecutionOptions.Timeout>
-                          </uix:VerifyExecutionOptions>
-                        </uix:NClick.VerifyOptions>
-                      </uix:NClick>
-                      <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into '건물번호 입력 단지명 입력 -'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="479.2,286.4" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="60498e6c-1372-42a2-8775-80920e0ff8fe" Text="[str단지명 + &quot;[k(Enter)]&quot;]" Version="V3">
-                        <uix:NTypeInto.Target>
-                          <uix:TargetAnchorable BrowserURL="https://www.realtyprice.kr/notice/town/nfSiteLink.htm" CVScreenId="12ffccae-2f6a-414d-988a-096ecbac019f" CvElementArea="1143, 672, 140, 27" CvType="InputBox" DesignTimeRectangle="1146, 674, 137, 24" DesignTimeScaleFactor="1.25" ElementType="InputBox" FullSelectorArgument="&lt;webctrl name='apt_name' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl name='apt_name' tag='INPUT' type='text' class='text1' aaname='' /&gt;" Guid="0713d59a-abb3-4daa-8186-a1f2d83b029c" InformativeScreenshot="6369b9081ef223d38a52fe9aa6cc3721.png" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='NOTICE' title='부동산공시가격 알리미' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V4" Visibility="Interactive">
-                            <uix:TargetAnchorable.Anchors>
-                              <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
-                                <uix:Target DesignTimeRectangle="871, 677, 486, 15" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;form&amp;gt;div&amp;gt;span' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' tag='SPAN' class='' aaname=' &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9; 건물번호 입력 &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9; 단지명 입력 &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9; &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9; &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9; &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9; &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;' check:innerText='건물번호 입력  단지명 입력' /&gt;" Guid="920db5fc-b8f4-4cf6-b40a-d3934bc05bf9" SearchSteps="Selector, FuzzySelector" />
-                              </scg:List>
-                            </uix:TargetAnchorable.Anchors>
-                          </uix:TargetAnchorable>
-                        </uix:NTypeInto.Target>
-                        <uix:NTypeInto.VerifyOptions>
-                          <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
-                            <uix:VerifyExecutionTypeIntoOptions.Retry>
-                              <InArgument x:TypeArguments="x:Boolean" />
-                            </uix:VerifyExecutionTypeIntoOptions.Retry>
-                            <uix:VerifyExecutionTypeIntoOptions.Timeout>
-                              <InArgument x:TypeArguments="x:Double" />
-                            </uix:VerifyExecutionTypeIntoOptions.Timeout>
-                          </uix:VerifyExecutionTypeIntoOptions>
-                        </uix:NTypeInto.VerifyOptions>
-                      </uix:NTypeInto>
-                      <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click '101'" sap:VirtualizedContainerService.HintSize="479.2,225.6" sap2010:WorkflowViewState.IdRef="NClick_6" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="60498e6c-1372-42a2-8775-80920e0ff8fe" Version="V3">
-                        <uix:NClick.Target>
-                          <uix:TargetAnchorable BrowserURL="https://www.realtyprice.kr/notice/town/nfSiteLink.htm" CVScreenId="65fa7161-99e8-4fea-a84d-6bedf52794f4" CvTextArea="1234, 746, 26, 15" CvTextArgument="101" CvType="Text" DesignTimeRectangle="1234, 746, 100, 20" DesignTimeScaleFactor="1.25" FullSelectorArgument="&lt;webctrl id='dong' tag='SELECT' /&gt;&lt;webctrl tag='OPTION' /&gt;" FuzzySelectorArgument="&lt;webctrl id='dong' tag='SELECT' /&gt;&lt;webctrl tag='OPTION' type='' class='' aaname='101' check:innerText='101' /&gt;" Guid="b5e59c39-f957-4314-b819-4d7ec64cedcd" InformativeScreenshot="bda6fdf01b69262a478dd863db2bf3ee.png" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='NOTICE' title='부동산공시가격 알리미' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
-                        </uix:NClick.Target>
-                        <uix:NClick.VerifyOptions>
-                          <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
-                            <uix:VerifyExecutionOptions.Retry>
-                              <InArgument x:TypeArguments="x:Boolean" />
-                            </uix:VerifyExecutionOptions.Retry>
-                            <uix:VerifyExecutionOptions.Timeout>
-                              <InArgument x:TypeArguments="x:Double" />
-                            </uix:VerifyExecutionOptions.Timeout>
-                          </uix:VerifyExecutionOptions>
-                        </uix:NClick.VerifyOptions>
-                      </uix:NClick>
-                      <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click '111'" sap:VirtualizedContainerService.HintSize="479.2,225.6" sap2010:WorkflowViewState.IdRef="NClick_7" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="60498e6c-1372-42a2-8775-80920e0ff8fe" Version="V3">
-                        <uix:NClick.Target>
-                          <uix:TargetAnchorable BrowserURL="https://www.realtyprice.kr/notice/town/nfSiteLink.htm" CVScreenId="6a1c5d29-e9fb-4003-a735-8c231078e113" CvTextArea="1395, 801, 22, 15" CvTextArgument="111" CvType="Text" DesignTimeRectangle="1396, 801, 99, 20" DesignTimeScaleFactor="1.25" FullSelectorArgument="&lt;webctrl id='ho' tag='SELECT' /&gt;&lt;webctrl aaname='111' tag='OPTION' /&gt;" FuzzySelectorArgument="&lt;webctrl id='ho' tag='SELECT' /&gt;&lt;webctrl aaname='111' tag='OPTION' type='' class='' check:innerText='111' /&gt;" Guid="e39186ab-7200-4ad4-835d-8f9e3c8c7d95" InformativeScreenshot="afe4441d95f8ebb5181348da44981277.png" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='NOTICE' title='부동산공시가격 알리미' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
-                        </uix:NClick.Target>
-                        <uix:NClick.VerifyOptions>
-                          <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
-                            <uix:VerifyExecutionOptions.Retry>
-                              <InArgument x:TypeArguments="x:Boolean" />
-                            </uix:VerifyExecutionOptions.Retry>
-                            <uix:VerifyExecutionOptions.Timeout>
-                              <InArgument x:TypeArguments="x:Double" />
-                            </uix:VerifyExecutionOptions.Timeout>
-                          </uix:VerifyExecutionOptions>
-                        </uix:NClick.VerifyOptions>
-                      </uix:NClick>
-                      <uix:NGetText DisplayName="Get Text '공시기준'" sap:VirtualizedContainerService.HintSize="479.2,189.6" sap2010:WorkflowViewState.IdRef="NGetText_2" ScopeIdentifier="60498e6c-1372-42a2-8775-80920e0ff8fe" TextString="[str공시기준일]" Version="V3">
-                        <uix:NGetText.Target>
-                          <uix:TargetAnchorable BrowserURL="https://www.realtyprice.kr/notice/town/nfSiteLink.htm" CVScreenId="14d68274-e065-401e-a4fc-a68b6828cba1" CvTextArea="600, 825, 57, 16" CvType="AnyWordGroup" DesignTimeRectangle="584, 795, 95, 78" DesignTimeScaleFactor="1.25" ElementType="Text" FullSelectorArgument="&lt;webctrl parentid='print_page' tag='TABLE' /&gt;&lt;webctrl tableRow='2' tag='TD' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='print_page' tag='TABLE' /&gt;&lt;webctrl type='' tag='TD' class='' /&gt;" Guid="db1802fe-ac12-487e-8970-5f6f1dfaa31e" InformativeScreenshot="e35790b2c467ecde9fa1aac9fa699605.png" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='NOTICE' title='부동산공시가격 알리미' /&gt;" SearchSteps="FuzzySelector" Version="V4" Visibility="Interactive">
-                            <uix:TargetAnchorable.Anchors>
-                              <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
-                                <uix:Target CVScreenId="14d68274-e065-401e-a4fc-a68b6828cba1" CvTextArea="595, 761, 68, 17" CvTextArgument="dA7IE" CvType="Text" DesignTimeRectangle="584, 747, 95, 49" ElementType="Text" FullSelectorArgument="&lt;webctrl parentid='print_page' tag='TABLE' /&gt;&lt;webctrl tableRow='1' tag='TH' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='print_page' tag='TABLE' /&gt;&lt;webctrl type='' tag='TH' class='' aaname='공시기준' check:innerText='공시기준' /&gt;" Guid="5f25ab4c-9659-46d0-bcbe-03266d6a7bca" SearchSteps="Selector, FuzzySelector" />
-                              </scg:List>
-                            </uix:TargetAnchorable.Anchors>
-                          </uix:TargetAnchorable>
-                        </uix:NGetText.Target>
-                      </uix:NGetText>
-                      <uix:NGetText DisplayName="Get Text '공동주택가격(원)'" sap:VirtualizedContainerService.HintSize="479.2,189.6" sap2010:WorkflowViewState.IdRef="NGetText_3" ScopeIdentifier="60498e6c-1372-42a2-8775-80920e0ff8fe" TextString="[str공동주택가격]" Version="V3">
-                        <uix:NGetText.Target>
-                          <uix:TargetAnchorable BrowserURL="https://www.realtyprice.kr/notice/town/nfSiteLink.htm" CVScreenId="14d68274-e065-401e-a4fc-a68b6828cba1" CvTextArea="1399, 825, 77, 16" CvType="AnyWordGroup" DesignTimeRectangle="1402, 826, 74, 16" DesignTimeScaleFactor="1.25" ElementType="Text" FullSelectorArgument="&lt;webctrl parentid='print_page' tag='TABLE' /&gt;&lt;webctrl id='opinNoticeAmt' tableRow='2' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='print_page' tag='TABLE' /&gt;&lt;webctrl id='opinNoticeAmt' type='' tag='SPAN' class='' /&gt;" Guid="c124d490-09a9-405f-a043-27e4b7d2bc48" InformativeScreenshot="6b42969b3a95757dfc72f81d9dfa904b.png" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='NOTICE' title='부동산공시가격 알리미' /&gt;" SearchSteps="FuzzySelector" Version="V4" Visibility="Interactive">
-                            <uix:TargetAnchorable.Anchors>
-                              <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
-                                <uix:Target CVScreenId="14d68274-e065-401e-a4fc-a68b6828cba1" CvTextArea="1370, 760, 135, 18" CvTextArgument="d57572(2)" CvType="Text" DesignTimeRectangle="1344, 747, 190, 49" ElementType="Text" FullSelectorArgument="&lt;webctrl parentid='print_page' tag='TABLE' /&gt;&lt;webctrl aaname='공동주택가격(원)' tableRow='1' tag='TH' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='print_page' tag='TABLE' /&gt;&lt;webctrl aaname='공동주택가격(원)' type='' tag='TH' class='' check:innerText='공동주택가격(원)' /&gt;" Guid="5eea7e81-3c97-43b6-a815-1cd9584e66d8" SearchSteps="Selector, FuzzySelector" />
-                              </scg:List>
-                            </uix:TargetAnchorable.Anchors>
-                          </uix:TargetAnchorable>
-                        </uix:NGetText.Target>
-                      </uix:NGetText>
-                      <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="479.2,172.8" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
-                        <ui:MultipleAssign.AssignOperations>
-                          <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
-                            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_12">
-                              <ui:AssignOperation.To>
-                                <OutArgument x:TypeArguments="x:Object" xml:space="preserve">[CurrentRow("공시기준일
-")]</OutArgument>
-                              </ui:AssignOperation.To>
-                              <ui:AssignOperation.Value>
-                                <InArgument x:TypeArguments="x:Object">[str공시기준일]</InArgument>
-                              </ui:AssignOperation.Value>
-                            </ui:AssignOperation>
-                            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_13">
-                              <ui:AssignOperation.To>
-                                <OutArgument x:TypeArguments="x:Object" xml:space="preserve">[CurrentRow("공시기준일 가격(￦)
-")]</OutArgument>
-                              </ui:AssignOperation.To>
-                              <ui:AssignOperation.Value>
-                                <InArgument x:TypeArguments="x:Object">[str공동주택가격]</InArgument>
-                              </ui:AssignOperation.Value>
-                            </ui:AssignOperation>
-                          </scg:List>
-                        </ui:MultipleAssign.AssignOperations>
-                      </ui:MultipleAssign>
+                      <Sequence DisplayName="클릭 &gt; 번지 type | Sequence" sap:VirtualizedContainerService.HintSize="704,56.8" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="대분류 | Click '인천광역시'" sap:VirtualizedContainerService.HintSize="387.2,225.6" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="60498e6c-1372-42a2-8775-80920e0ff8fe" Version="V3">
+                          <uix:NClick.Target>
+                            <uix:TargetAnchorable BrowserURL="https://www.realtyprice.kr/notice/town/nfSiteLink.htm" CVScreenId="ef834db7-b9eb-4fd6-8db2-a57211fcec72" CvTextArea="847, 854, 82, 20" CvTextArgument="2ltgqaj" CvType="Text" DesignTimeRectangle="848, 853, 140, 23" DesignTimeScaleFactor="1.25" FullSelectorArgument="[string.Format(&quot;&lt;webctrl id='sido' tag='SELECT' /&gt;&lt;webctrl aaname='{0}' tag='OPTION' /&gt;&quot;, str대분류)]" FuzzySelectorArgument="&lt;webctrl id='sido' tag='SELECT' /&gt;&lt;webctrl aaname='인천광역시' tag='OPTION' type='' class='' check:innerText='인천광역시' /&gt;" Guid="a8b5ac74-6eda-4276-a2e5-97139742c0d6" InformativeScreenshot="b9df3eed3b7dfe152b9504dde27486de.png" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='NOTICE' title='부동산공시가격 알리미' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
+                          </uix:NClick.Target>
+                          <uix:NClick.VerifyOptions>
+                            <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                              <uix:VerifyExecutionOptions.Retry>
+                                <InArgument x:TypeArguments="x:Boolean" />
+                              </uix:VerifyExecutionOptions.Retry>
+                              <uix:VerifyExecutionOptions.Timeout>
+                                <InArgument x:TypeArguments="x:Double" />
+                              </uix:VerifyExecutionOptions.Timeout>
+                            </uix:VerifyExecutionOptions>
+                          </uix:NClick.VerifyOptions>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </uix:NClick>
+                        <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="중분류 | Click '연수구'" sap:VirtualizedContainerService.HintSize="387.2,225.6" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="60498e6c-1372-42a2-8775-80920e0ff8fe" Version="V3">
+                          <uix:NClick.Target>
+                            <uix:TargetAnchorable BrowserURL="https://www.realtyprice.kr/notice/town/nfSiteLink.htm" CVScreenId="d6196e76-98bd-4bb5-b390-60f783ee22f7" CvTextArea="1030, 946, 50, 20" CvTextArgument="1+7" CvType="Text" DesignTimeRectangle="1031, 945, 139, 23" DesignTimeScaleFactor="1.25" FullSelectorArgument="[string.Format(&quot;&lt;webctrl id='sigungu' tag='SELECT' /&gt;&lt;webctrl aaname='{0}' tag='OPTION' /&gt;&quot;, str중분류)]" FuzzySelectorArgument="&lt;webctrl id='sigungu' tag='SELECT' /&gt;&lt;webctrl aaname='연수구' tag='OPTION' type='' class='' check:innerText='연수구' /&gt;" Guid="5de6695e-2791-4e51-bc45-db868579492e" InformativeScreenshot="787bacb5ed2c76e5429177463d303480.png" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='NOTICE' title='부동산공시가격 알리미' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
+                          </uix:NClick.Target>
+                          <uix:NClick.VerifyOptions>
+                            <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                              <uix:VerifyExecutionOptions.Retry>
+                                <InArgument x:TypeArguments="x:Boolean" />
+                              </uix:VerifyExecutionOptions.Retry>
+                              <uix:VerifyExecutionOptions.Timeout>
+                                <InArgument x:TypeArguments="x:Double" />
+                              </uix:VerifyExecutionOptions.Timeout>
+                            </uix:VerifyExecutionOptions>
+                          </uix:NClick.VerifyOptions>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </uix:NClick>
+                        <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="str초성 | Click 'ㅇ'" sap:VirtualizedContainerService.HintSize="387.2,56.8" sap2010:WorkflowViewState.IdRef="NClick_3" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="60498e6c-1372-42a2-8775-80920e0ff8fe" Version="V3">
+                          <uix:NClick.Target>
+                            <uix:TargetAnchorable BrowserURL="https://www.realtyprice.kr/notice/town/nfSiteLink.htm" CVScreenId="830a4b80-3bf8-436a-8512-756fea03dab4" CvTextArea="1214, 825, 12, 12" CvTextArgument="O" CvType="Text" DesignTimeRectangle="1213, 820, 40, 23" DesignTimeScaleFactor="1.25" FullSelectorArgument="[string.Format(&quot;&lt;webctrl id='initialword' tag='SELECT' /&gt;&lt;webctrl aaname='{0}' tag='OPTION' /&gt;&quot;, str초성)]" FuzzySelectorArgument="&lt;webctrl id='initialword' tag='SELECT' /&gt;&lt;webctrl aaname='ㅇ' tag='OPTION' type='' class='' check:innerText='ㅇ' /&gt;" Guid="3690b753-ab58-46e6-adc2-99ab81f58df1" InformativeScreenshot="fe48496ea00e5ac6603bcc1fa7ba9e7b.png" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='NOTICE' title='부동산공시가격 알리미' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
+                          </uix:NClick.Target>
+                          <uix:NClick.VerifyOptions>
+                            <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                              <uix:VerifyExecutionOptions.Retry>
+                                <InArgument x:TypeArguments="x:Boolean" />
+                              </uix:VerifyExecutionOptions.Retry>
+                              <uix:VerifyExecutionOptions.Timeout>
+                                <InArgument x:TypeArguments="x:Double" />
+                              </uix:VerifyExecutionOptions.Timeout>
+                            </uix:VerifyExecutionOptions>
+                          </uix:NClick.VerifyOptions>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </uix:NClick>
+                        <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="소분류 | Click '원인재로'" sap:VirtualizedContainerService.HintSize="387.2,56.8" sap2010:WorkflowViewState.IdRef="NClick_4" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="60498e6c-1372-42a2-8775-80920e0ff8fe" Version="V3">
+                          <uix:NClick.Target>
+                            <uix:TargetAnchorable BrowserURL="https://www.realtyprice.kr/notice/town/nfSiteLink.htm" CVScreenId="1c6c52e3-bb8b-42f7-b7ee-cb783fe524a4" CvTextArea="1295, 744, 66, 20" CvTextArgument="2OTHE" CvType="Text" DesignTimeRectangle="1296, 743, 189, 23" DesignTimeScaleFactor="1.25" FullSelectorArgument="[string.Format(&quot;&lt;webctrl id='road' tag='SELECT' /&gt;&lt;webctrl aaname='{0}' tag='OPTION' /&gt;&quot;, str소분류)]" FuzzySelectorArgument="&lt;webctrl id='road' tag='SELECT' /&gt;&lt;webctrl aaname='원인재로' tag='OPTION' type='' class='' check:innerText='원인재로' /&gt;" Guid="ab8bea4e-ec27-4b1c-91ca-49d8909eaa14" InformativeScreenshot="d54e968694ef937b34db3a65093c0863.png" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='NOTICE' title='부동산공시가격 알리미' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
+                          </uix:NClick.Target>
+                          <uix:NClick.VerifyOptions>
+                            <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                              <uix:VerifyExecutionOptions.Retry>
+                                <InArgument x:TypeArguments="x:Boolean" />
+                              </uix:VerifyExecutionOptions.Retry>
+                              <uix:VerifyExecutionOptions.Timeout>
+                                <InArgument x:TypeArguments="x:Double" />
+                              </uix:VerifyExecutionOptions.Timeout>
+                            </uix:VerifyExecutionOptions>
+                          </uix:NClick.VerifyOptions>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </uix:NClick>
+                        <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click '건물번호 입력 단지명 입력 -'" sap:VirtualizedContainerService.HintSize="387.2,56.8" sap2010:WorkflowViewState.IdRef="NClick_5" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="60498e6c-1372-42a2-8775-80920e0ff8fe" Version="V3">
+                          <uix:NClick.Target>
+                            <uix:TargetAnchorable BrowserURL="https://www.realtyprice.kr/notice/town/nfSiteLink.htm" CVScreenId="d63d7be4-e79c-44ba-ac95-c9c4b49a0dd5" CvElementArea="1012, 672, 21, 21" CvType="RadioButton" DesignTimeRectangle="1016, 675, 16, 17" DesignTimeScaleFactor="1.25" ElementType="RadioButton" FullSelectorArgument="&lt;webctrl class='radio2' tag='INPUT' type='radio' /&gt;" FuzzySelectorArgument="&lt;webctrl class='radio2' tag='INPUT' type='radio' aaname='' /&gt;" Guid="52eb7090-6454-4408-bf2a-9e07e28ef7b8" InformativeScreenshot="5121a62976704b0669ea3017429b6475.png" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='NOTICE' title='부동산공시가격 알리미' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V4" Visibility="Interactive">
+                              <uix:TargetAnchorable.Anchors>
+                                <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                  <uix:Target DesignTimeRectangle="871, 677, 492, 15" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;form&amp;gt;div&amp;gt;span' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' tag='SPAN' class='' aaname=' &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9; 건물번호 입력 &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9; 단지명 입력 &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9; &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9; &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9; &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9; &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;' check:innerText='건물번호 입력  단지명 입력  -' /&gt;" Guid="d7327e35-e136-4ef6-b1df-0f4810959f11" SearchSteps="Selector, FuzzySelector" />
+                                </scg:List>
+                              </uix:TargetAnchorable.Anchors>
+                            </uix:TargetAnchorable>
+                          </uix:NClick.Target>
+                          <uix:NClick.VerifyOptions>
+                            <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                              <uix:VerifyExecutionOptions.Retry>
+                                <InArgument x:TypeArguments="x:Boolean" />
+                              </uix:VerifyExecutionOptions.Retry>
+                              <uix:VerifyExecutionOptions.Timeout>
+                                <InArgument x:TypeArguments="x:Double" />
+                              </uix:VerifyExecutionOptions.Timeout>
+                            </uix:VerifyExecutionOptions>
+                          </uix:NClick.VerifyOptions>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </uix:NClick>
+                        <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into '건물번호 입력 단지명 입력 -'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="387.2,56.8" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="60498e6c-1372-42a2-8775-80920e0ff8fe" Text="[str단지명 + &quot;[k(Enter)]&quot;]" Version="V3">
+                          <uix:NTypeInto.Target>
+                            <uix:TargetAnchorable BrowserURL="https://www.realtyprice.kr/notice/town/nfSiteLink.htm" CVScreenId="12ffccae-2f6a-414d-988a-096ecbac019f" CvElementArea="1143, 672, 140, 27" CvType="InputBox" DesignTimeRectangle="1146, 674, 137, 24" DesignTimeScaleFactor="1.25" ElementType="InputBox" FullSelectorArgument="&lt;webctrl name='apt_name' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl name='apt_name' tag='INPUT' type='text' class='text1' aaname='' /&gt;" Guid="0713d59a-abb3-4daa-8186-a1f2d83b029c" InformativeScreenshot="6369b9081ef223d38a52fe9aa6cc3721.png" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='NOTICE' title='부동산공시가격 알리미' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V4" Visibility="Interactive">
+                              <uix:TargetAnchorable.Anchors>
+                                <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                  <uix:Target DesignTimeRectangle="871, 677, 486, 15" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;form&amp;gt;div&amp;gt;span' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' tag='SPAN' class='' aaname=' &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9; 건물번호 입력 &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9; 단지명 입력 &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9; &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9; &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9; &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9; &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;' check:innerText='건물번호 입력  단지명 입력' /&gt;" Guid="920db5fc-b8f4-4cf6-b40a-d3934bc05bf9" SearchSteps="Selector, FuzzySelector" />
+                                </scg:List>
+                              </uix:TargetAnchorable.Anchors>
+                            </uix:TargetAnchorable>
+                          </uix:NTypeInto.Target>
+                          <uix:NTypeInto.VerifyOptions>
+                            <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                              <uix:VerifyExecutionTypeIntoOptions.Retry>
+                                <InArgument x:TypeArguments="x:Boolean" />
+                              </uix:VerifyExecutionTypeIntoOptions.Retry>
+                              <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                <InArgument x:TypeArguments="x:Double" />
+                              </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                            </uix:VerifyExecutionTypeIntoOptions>
+                          </uix:NTypeInto.VerifyOptions>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </uix:NTypeInto>
+                        <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click '(107-4) 천일빌라'" sap:VirtualizedContainerService.HintSize="387.2,49.6" sap2010:WorkflowViewState.IdRef="NClick_12" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="60498e6c-1372-42a2-8775-80920e0ff8fe" Version="V3">
+                          <uix:NClick.Target>
+                            <uix:TargetAnchorable BrowserURL="https://www.realtyprice.kr/notice/town/nfSiteLink.htm" CVScreenId="8e385a28-3e0c-4d9e-a565-bc026bb4d96d" CvElementArea="847, 879, 327, 195" CvType="InputBox" DesignTimeRectangle="848, 880, 325, 23" DesignTimeScaleFactor="1.25" FullSelectorArgument="&lt;webctrl id='apt' tag='SELECT' /&gt;&lt;webctrl tag='OPTION' /&gt;" FuzzySelectorArgument="&lt;webctrl id='apt' tag='SELECT' /&gt;&lt;webctrl tag='OPTION' type='' class='' aaname='(107-4) 천일빌라' check:innerText='(107-4) 천일빌라' /&gt;" Guid="e1e39578-5dd0-423d-898d-500bea3522bd" InformativeScreenshot="a4851df3ff6ebfd9a81f429b7692a4f8.png" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='NOTICE' title='부동산공시가격 알리미' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V4" Visibility="Interactive" />
+                          </uix:NClick.Target>
+                          <uix:NClick.VerifyOptions>
+                            <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                              <uix:VerifyExecutionOptions.Retry>
+                                <InArgument x:TypeArguments="x:Boolean" />
+                              </uix:VerifyExecutionOptions.Retry>
+                              <uix:VerifyExecutionOptions.Timeout>
+                                <InArgument x:TypeArguments="x:Double" />
+                              </uix:VerifyExecutionOptions.Timeout>
+                            </uix:VerifyExecutionOptions>
+                          </uix:NClick.VerifyOptions>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </uix:NClick>
+                      </Sequence>
+                      <Sequence DisplayName="동명 유무 / 단지 여러개 유무 | Sequence" sap:VirtualizedContainerService.HintSize="704,1484" sap2010:WorkflowViewState.IdRef="Sequence_28">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <uix:NGetText DisplayName="Get Text '동명없음'" sap:VirtualizedContainerService.HintSize="641.6,56.8" sap2010:WorkflowViewState.IdRef="NGetText_5" ScopeIdentifier="60498e6c-1372-42a2-8775-80920e0ff8fe" TextString="[str동명없음]" Version="V3">
+                          <uix:NGetText.Target>
+                            <uix:TargetAnchorable BrowserURL="https://www.realtyprice.kr/notice/town/nfSiteLink.htm" CVScreenId="a280aa0f-cf8d-40c6-a233-50aa5be0d9c8" CvTextArea="1232, 756, 67, 18" CvType="AnyWordGroup" DesignTimeRectangle="1234, 755, 100, 23" DesignTimeScaleFactor="1.25" FullSelectorArgument="&lt;webctrl id='dong' tag='SELECT' /&gt;&lt;webctrl tag='OPTION' /&gt;" FuzzySelectorArgument="&lt;webctrl id='dong' tag='SELECT' /&gt;&lt;webctrl tag='OPTION' type='' class='' /&gt;" Guid="c8420bfa-5750-494c-8cbd-23c018230462" InformativeScreenshot="c25fe61b33093701c2088dc3707bdb37.png" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='NOTICE' title='부동산공시가격 알리미' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V4" Visibility="Interactive" />
+                          </uix:NGetText.Target>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </uix:NGetText>
+                        <If Condition="[str동명없음 = &quot;동명없음&quot;]" DisplayName="동명 유무/ 단지 여러개 | If" sap:VirtualizedContainerService.HintSize="641.6,1255.2" sap2010:WorkflowViewState.IdRef="If_4">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <If.Then>
+                            <Sequence DisplayName="동명이 없는 경우 | Then" sap:VirtualizedContainerService.HintSize="416,136.8" sap2010:WorkflowViewState.IdRef="Sequence_20">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <uix:NSelectItem DisplayName="호 선택 | Select Item 'SELECT ho'" sap:VirtualizedContainerService.HintSize="353.6,48" sap2010:WorkflowViewState.IdRef="NSelectItem_5" Item="[str호]" ScopeIdentifier="60498e6c-1372-42a2-8775-80920e0ff8fe" Version="V3">
+                                <uix:NSelectItem.Items>
+                                  <scg:List x:TypeArguments="x:String" Capacity="50">
+                                    <x:String>101</x:String>
+                                    <x:String>102</x:String>
+                                    <x:String>103</x:String>
+                                    <x:String>104</x:String>
+                                    <x:String>105</x:String>
+                                    <x:String>106</x:String>
+                                    <x:String>107</x:String>
+                                    <x:String>109</x:String>
+                                    <x:String>110</x:String>
+                                    <x:String>111</x:String>
+                                    <x:String>112</x:String>
+                                    <x:String>113</x:String>
+                                    <x:String>114</x:String>
+                                    <x:String>115</x:String>
+                                    <x:String>116</x:String>
+                                    <x:String>201</x:String>
+                                    <x:String>202</x:String>
+                                    <x:String>203</x:String>
+                                    <x:String>204</x:String>
+                                    <x:String>205</x:String>
+                                    <x:String>206</x:String>
+                                    <x:String>207</x:String>
+                                    <x:String>208</x:String>
+                                    <x:String>209</x:String>
+                                    <x:String>210</x:String>
+                                    <x:String>211</x:String>
+                                    <x:String>212</x:String>
+                                    <x:String>213</x:String>
+                                    <x:String>214</x:String>
+                                    <x:String>215</x:String>
+                                    <x:String>216</x:String>
+                                    <x:String>301</x:String>
+                                    <x:String>302</x:String>
+                                    <x:String>303</x:String>
+                                    <x:String>304</x:String>
+                                    <x:String>305</x:String>
+                                    <x:String>306</x:String>
+                                    <x:String>307</x:String>
+                                    <x:String>308</x:String>
+                                    <x:String>309</x:String>
+                                    <x:String>310</x:String>
+                                    <x:String>311</x:String>
+                                    <x:String>312</x:String>
+                                    <x:String>313</x:String>
+                                    <x:String>314</x:String>
+                                    <x:String>315</x:String>
+                                    <x:String>316</x:String>
+                                    <x:String>401</x:String>
+                                    <x:String>402</x:String>
+                                    <x:String>403</x:String>
+                                  </scg:List>
+                                </uix:NSelectItem.Items>
+                                <uix:NSelectItem.Target>
+                                  <uix:TargetAnchorable BrowserURL="https://www.realtyprice.kr/notice/town/nfSiteLink.htm" DesignTimeRectangle="1395, 745, 122, 194" DesignTimeScaleFactor="1.25" ElementType="DropDown" FullSelectorArgument="&lt;webctrl id='ho' tag='SELECT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='ho' tag='SELECT' type='' class='dongho' aaname='' /&gt;" Guid="1b10c5a8-b6ba-4eeb-ba7e-b4cf7a610d64" InformativeScreenshot="b18ddd82d6f07047c6b904014f61a226.png" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='NOTICE' title='부동산공시가격 알리미' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V4" Visibility="Interactive" />
+                                </uix:NSelectItem.Target>
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                              </uix:NSelectItem>
+                            </Sequence>
+                          </If.Then>
+                          <If.Else>
+                            <Sequence DisplayName="동명이 있는 경우 | Else" sap:VirtualizedContainerService.HintSize="608,948" sap2010:WorkflowViewState.IdRef="Sequence_21">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <ui:FindChildren Children="[children단지명]" DisplayName="Find Children 'SELECT  apt'" Filter="&lt;webctrl /&gt;" sap:VirtualizedContainerService.HintSize="545.6,56.8" sap2010:WorkflowViewState.IdRef="FindChildren_3" Scope="FIND_CHILDREN">
+                                <ui:FindChildren.Target>
+                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="1fc24d4a-dcbd-46d9-8627-fc434ecd799a" InformativeScreenshot="526c690d5dd05dbee54a10d3afab675a" Selector="&lt;webctrl id='apt' tag='SELECT' /&gt;">
+                                    <ui:Target.TimeoutMS>
+                                      <InArgument x:TypeArguments="x:Int32" />
+                                    </ui:Target.TimeoutMS>
+                                    <ui:Target.WaitForReady>
+                                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                                    </ui:Target.WaitForReady>
+                                  </ui:Target>
+                                </ui:FindChildren.Target>
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                              </ui:FindChildren>
+                              <If Condition="[children단지명.Count() &gt; 1]" sap:VirtualizedContainerService.HintSize="545.6,802.4" sap2010:WorkflowViewState.IdRef="If_5">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <If.Then>
+                                  <Sequence DisplayName="단지 여러개일 경우 | Then" sap:VirtualizedContainerService.HintSize="416,24.8" sap2010:WorkflowViewState.IdRef="Sequence_23">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <ui:ForEach x:TypeArguments="ui:UiElement" CurrentIndex="{x:Null}" DisplayName="For Each currentUiElement" sap:VirtualizedContainerService.HintSize="545.6,833.6" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[children단지명]">
+                                      <ui:ForEach.Body>
+                                        <ActivityAction x:TypeArguments="ui:UiElement">
+                                          <ActivityAction.Argument>
+                                            <DelegateInArgument x:TypeArguments="ui:UiElement" Name="currentUiElement" />
+                                          </ActivityAction.Argument>
+                                          <Sequence DisplayName="본문" sap:VirtualizedContainerService.HintSize="512,696" sap2010:WorkflowViewState.IdRef="Sequence_25">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                            <Assign DisplayName="str동첫글자 | Assign" sap:VirtualizedContainerService.HintSize="449.6,56.8" sap2010:WorkflowViewState.IdRef="Assign_3">
+                                              <Assign.To>
+                                                <OutArgument x:TypeArguments="x:String">[str동추출글자]</OutArgument>
+                                              </Assign.To>
+                                              <Assign.Value>
+                                                <InArgument x:TypeArguments="x:String">[str동.Substring(0,1)]</InArgument>
+                                              </Assign.Value>
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                </scg:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                            </Assign>
+                                            <uix:NGetText DisplayName="엘리먼트 글자 추출 | Get Text" sap:VirtualizedContainerService.HintSize="449.6,56.8" sap2010:WorkflowViewState.IdRef="NGetText_7" InUiElement="[currentUiElement]" TextString="[strchilderen단지명]" Version="V3">
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                </scg:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                            </uix:NGetText>
+                                            <If Condition="[strchilderen단지명.Contains(str동추출글자)]" sap:VirtualizedContainerService.HintSize="449.6,493.6" sap2010:WorkflowViewState.IdRef="If_6">
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                                                </scg:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                              <If.Then>
+                                                <Sequence DisplayName="첫글자를 가지는 엘리먼트 클릭 | Then" sap:VirtualizedContainerService.HintSize="416,307.2" sap2010:WorkflowViewState.IdRef="Sequence_26">
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                      <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click" sap:VirtualizedContainerService.HintSize="353.6,56.8" sap2010:WorkflowViewState.IdRef="NClick_15" InUiElement="[currentUiElement]" KeyModifiers="None" MouseButton="Left" Version="V3">
+                                                    <uix:NClick.VerifyOptions>
+                                                      <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                                                        <uix:VerifyExecutionOptions.Retry>
+                                                          <InArgument x:TypeArguments="x:Boolean" />
+                                                        </uix:VerifyExecutionOptions.Retry>
+                                                        <uix:VerifyExecutionOptions.Timeout>
+                                                          <InArgument x:TypeArguments="x:Double" />
+                                                        </uix:VerifyExecutionOptions.Timeout>
+                                                      </uix:VerifyExecutionOptions>
+                                                    </uix:NClick.VerifyOptions>
+                                                    <sap:WorkflowViewStateService.ViewState>
+                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                      </scg:Dictionary>
+                                                    </sap:WorkflowViewStateService.ViewState>
+                                                  </uix:NClick>
+                                                  <uix:NSelectItem DisplayName="동 선택 | Select Item 'SELECT dong'" sap:VirtualizedContainerService.HintSize="353.6,56.8" sap2010:WorkflowViewState.IdRef="NSelectItem_6" Item="[str동]" ScopeIdentifier="60498e6c-1372-42a2-8775-80920e0ff8fe" Version="V3">
+                                                    <uix:NSelectItem.Items>
+                                                      <scg:List x:TypeArguments="x:String" Capacity="6">
+                                                        <x:String>101</x:String>
+                                                        <x:String>102</x:String>
+                                                        <x:String>103</x:String>
+                                                        <x:String>104</x:String>
+                                                        <x:String>105</x:String>
+                                                        <x:String>106</x:String>
+                                                      </scg:List>
+                                                    </uix:NSelectItem.Items>
+                                                    <uix:NSelectItem.Target>
+                                                      <uix:TargetAnchorable BrowserURL="https://www.realtyprice.kr/notice/town/nfSiteLink.htm" DesignTimeRectangle="1233, 745, 123, 194" DesignTimeScaleFactor="1.25" ElementType="DropDown" FullSelectorArgument="&lt;webctrl id='dong' tag='SELECT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='dong' tag='SELECT' type='' class='dongho' aaname='' /&gt;" Guid="482d0a9b-1dbe-4b0c-bb34-329237e0fd26" InformativeScreenshot="1dc37a4a485050acdc24e4474e304e03.png" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='NOTICE' title='부동산공시가격 알리미' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V4" Visibility="Interactive" />
+                                                    </uix:NSelectItem.Target>
+                                                    <sap:WorkflowViewStateService.ViewState>
+                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                      </scg:Dictionary>
+                                                    </sap:WorkflowViewStateService.ViewState>
+                                                  </uix:NSelectItem>
+                                                  <uix:NSelectItem DisplayName="호 선택 | Select Item 'SELECT ho'" sap:VirtualizedContainerService.HintSize="353.6,56.8" sap2010:WorkflowViewState.IdRef="NSelectItem_7" Item="[str호]" ScopeIdentifier="60498e6c-1372-42a2-8775-80920e0ff8fe" Version="V3">
+                                                    <uix:NSelectItem.Items>
+                                                      <scg:List x:TypeArguments="x:String" Capacity="50">
+                                                        <x:String>101</x:String>
+                                                        <x:String>102</x:String>
+                                                        <x:String>103</x:String>
+                                                        <x:String>104</x:String>
+                                                        <x:String>105</x:String>
+                                                        <x:String>106</x:String>
+                                                        <x:String>107</x:String>
+                                                        <x:String>109</x:String>
+                                                        <x:String>110</x:String>
+                                                        <x:String>111</x:String>
+                                                        <x:String>112</x:String>
+                                                        <x:String>113</x:String>
+                                                        <x:String>114</x:String>
+                                                        <x:String>115</x:String>
+                                                        <x:String>116</x:String>
+                                                        <x:String>201</x:String>
+                                                        <x:String>202</x:String>
+                                                        <x:String>203</x:String>
+                                                        <x:String>204</x:String>
+                                                        <x:String>205</x:String>
+                                                        <x:String>206</x:String>
+                                                        <x:String>207</x:String>
+                                                        <x:String>208</x:String>
+                                                        <x:String>209</x:String>
+                                                        <x:String>210</x:String>
+                                                        <x:String>211</x:String>
+                                                        <x:String>212</x:String>
+                                                        <x:String>213</x:String>
+                                                        <x:String>214</x:String>
+                                                        <x:String>215</x:String>
+                                                        <x:String>216</x:String>
+                                                        <x:String>301</x:String>
+                                                        <x:String>302</x:String>
+                                                        <x:String>303</x:String>
+                                                        <x:String>304</x:String>
+                                                        <x:String>305</x:String>
+                                                        <x:String>306</x:String>
+                                                        <x:String>307</x:String>
+                                                        <x:String>308</x:String>
+                                                        <x:String>309</x:String>
+                                                        <x:String>310</x:String>
+                                                        <x:String>311</x:String>
+                                                        <x:String>312</x:String>
+                                                        <x:String>313</x:String>
+                                                        <x:String>314</x:String>
+                                                        <x:String>315</x:String>
+                                                        <x:String>316</x:String>
+                                                        <x:String>401</x:String>
+                                                        <x:String>402</x:String>
+                                                        <x:String>403</x:String>
+                                                      </scg:List>
+                                                    </uix:NSelectItem.Items>
+                                                    <uix:NSelectItem.Target>
+                                                      <uix:TargetAnchorable BrowserURL="https://www.realtyprice.kr/notice/town/nfSiteLink.htm" DesignTimeRectangle="1395, 745, 122, 194" DesignTimeScaleFactor="1.25" ElementType="DropDown" FullSelectorArgument="&lt;webctrl id='ho' tag='SELECT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='ho' tag='SELECT' type='' class='dongho' aaname='' /&gt;" Guid="1b10c5a8-b6ba-4eeb-ba7e-b4cf7a610d64" InformativeScreenshot="b18ddd82d6f07047c6b904014f61a226.png" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='NOTICE' title='부동산공시가격 알리미' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V4" Visibility="Interactive" />
+                                                    </uix:NSelectItem.Target>
+                                                    <sap:WorkflowViewStateService.ViewState>
+                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                      </scg:Dictionary>
+                                                    </sap:WorkflowViewStateService.ViewState>
+                                                  </uix:NSelectItem>
+                                                  <ui:Break sap:VirtualizedContainerService.HintSize="353.6,48" sap2010:WorkflowViewState.IdRef="Break_2" />
+                                                </Sequence>
+                                              </If.Then>
+                                              <If.Else>
+                                                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,24.8" sap2010:WorkflowViewState.IdRef="Sequence_27">
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                </Sequence>
+                                              </If.Else>
+                                            </If>
+                                          </Sequence>
+                                        </ActivityAction>
+                                      </ui:ForEach.Body>
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                    </ui:ForEach>
+                                  </Sequence>
+                                </If.Then>
+                                <If.Else>
+                                  <Sequence DisplayName="단지가 하나일 경우 | Else" sap:VirtualizedContainerService.HintSize="512,616" sap2010:WorkflowViewState.IdRef="Sequence_24">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <ui:FindChildren Children="[children동]" DisplayName="Find Children 'SELECT  dong'" Filter="&lt;webctrl /&gt;" sap:VirtualizedContainerService.HintSize="449.6,139.2" sap2010:WorkflowViewState.IdRef="FindChildren_4" Scope="FIND_CHILDREN">
+                                      <ui:FindChildren.Target>
+                                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="f8c45d14-e6cb-4fd8-a312-9e501ec08bea" InformativeScreenshot="6f630d9d5f9e5bd0bd2f35f16a60028e" Selector="&lt;webctrl id='dong' tag='SELECT' /&gt;">
+                                          <ui:Target.TimeoutMS>
+                                            <InArgument x:TypeArguments="x:Int32" />
+                                          </ui:Target.TimeoutMS>
+                                          <ui:Target.WaitForReady>
+                                            <InArgument x:TypeArguments="ui:WaitForReady" />
+                                          </ui:Target.WaitForReady>
+                                        </ui:Target>
+                                      </ui:FindChildren.Target>
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                    </ui:FindChildren>
+                                    <ui:ForEach x:TypeArguments="ui:UiElement" CurrentIndex="{x:Null}" DisplayName="동이름 정확하게 일치하지 않는 경우 | For Each currentUiElement" sap:VirtualizedContainerService.HintSize="449.6,388" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[children동]">
+                                      <ui:ForEach.Body>
+                                        <ActivityAction x:TypeArguments="ui:UiElement">
+                                          <ActivityAction.Argument>
+                                            <DelegateInArgument x:TypeArguments="ui:UiElement" Name="currentUiElement" />
+                                          </ActivityAction.Argument>
+                                          <Sequence DisplayName="본문" sap:VirtualizedContainerService.HintSize="416,250.4" sap2010:WorkflowViewState.IdRef="Sequence_47">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                            <If Condition="[str동.Length &gt; 1]" sap:VirtualizedContainerService.HintSize="353.6,56.8" sap2010:WorkflowViewState.IdRef="If_9">
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                </scg:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                              <If.Then>
+                                                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="496,193.6" sap2010:WorkflowViewState.IdRef="Sequence_72">
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                      <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                  <Assign DisplayName="str동첫글자 | Assign" sap:VirtualizedContainerService.HintSize="433.6,104.8" sap2010:WorkflowViewState.IdRef="Assign_13">
+                                                    <Assign.To>
+                                                      <OutArgument x:TypeArguments="x:String">[str동추출글자]</OutArgument>
+                                                    </Assign.To>
+                                                    <Assign.Value>
+                                                      <InArgument x:TypeArguments="x:String">[str동.Substring(1,2)]</InArgument>
+                                                    </Assign.Value>
+                                                    <sap:WorkflowViewStateService.ViewState>
+                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                        <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                                                      </scg:Dictionary>
+                                                    </sap:WorkflowViewStateService.ViewState>
+                                                  </Assign>
+                                                </Sequence>
+                                              </If.Then>
+                                              <If.Else>
+                                                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,24.8" sap2010:WorkflowViewState.IdRef="Sequence_73">
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                </Sequence>
+                                              </If.Else>
+                                            </If>
+                                            <uix:NGetText DisplayName="엘리먼트 글자 추출 | Get Text" sap:VirtualizedContainerService.HintSize="353.6,56.8" sap2010:WorkflowViewState.IdRef="NGetText_8" InUiElement="[currentUiElement]" TextString="[strchilderen동]" Version="V3">
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                </scg:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                            </uix:NGetText>
+                                            <ui:IfElseIfV2 Condition="[strchilderen동 = str동]" DisplayName="아닐 경우" sap:VirtualizedContainerService.HintSize="353.6,48" sap2010:WorkflowViewState.IdRef="IfElseIfV2_3">
+                                              <ui:IfElseIfV2.Else>
+                                                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,24.8" sap2010:WorkflowViewState.IdRef="Sequence_60">
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                </Sequence>
+                                              </ui:IfElseIfV2.Else>
+                                              <ui:IfElseIfV2.ElseIfs>
+                                                <sc:BindingList x:TypeArguments="ui:IfElseIfBlock" AllowEdit="True" AllowNew="True" AllowRemove="True" RaiseListChangedEvents="True">
+                                                  <ui:IfElseIfBlock BlockType="ElseIf" Condition="[strchilderen동.Contains(str동추출글자)]" DisplayName="If else if block" sap2010:WorkflowViewState.IdRef="IfElseIfBlock_8">
+                                                    <ui:IfElseIfBlock.Then>
+                                                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="688,1543.2" sap2010:WorkflowViewState.IdRef="Sequence_66">
+                                                        <sap:WorkflowViewStateService.ViewState>
+                                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                            <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                                                          </scg:Dictionary>
+                                                        </sap:WorkflowViewStateService.ViewState>
+                                                        <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click" sap:VirtualizedContainerService.HintSize="625.6,205.6" sap2010:WorkflowViewState.IdRef="NClick_26" InUiElement="[currentUiElement]" KeyModifiers="None" MouseButton="Left" Version="V3">
+                                                          <uix:NClick.VerifyOptions>
+                                                            <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                                                              <uix:VerifyExecutionOptions.Retry>
+                                                                <InArgument x:TypeArguments="x:Boolean" />
+                                                              </uix:VerifyExecutionOptions.Retry>
+                                                              <uix:VerifyExecutionOptions.Timeout>
+                                                                <InArgument x:TypeArguments="x:Double" />
+                                                              </uix:VerifyExecutionOptions.Timeout>
+                                                            </uix:VerifyExecutionOptions>
+                                                          </uix:NClick.VerifyOptions>
+                                                          <sap:WorkflowViewStateService.ViewState>
+                                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                              <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                                                            </scg:Dictionary>
+                                                          </sap:WorkflowViewStateService.ViewState>
+                                                        </uix:NClick>
+                                                        <ui:FindChildren Children="[children호]" DisplayName="Find Children 'SELECT  ho'" Filter="&lt;webctrl /&gt;" sap:VirtualizedContainerService.HintSize="625.6,139.2" sap2010:WorkflowViewState.IdRef="FindChildren_9" Scope="FIND_CHILDREN">
+                                                          <ui:FindChildren.Target>
+                                                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="332a0d24-5dbb-4fe4-a39d-357d3bdf8b02" InformativeScreenshot="3a723abd91eaa7c0024593b871a063b0" Selector="&lt;webctrl id='ho' tag='SELECT' /&gt;">
+                                                              <ui:Target.TimeoutMS>
+                                                                <InArgument x:TypeArguments="x:Int32" />
+                                                              </ui:Target.TimeoutMS>
+                                                              <ui:Target.WaitForReady>
+                                                                <InArgument x:TypeArguments="ui:WaitForReady" />
+                                                              </ui:Target.WaitForReady>
+                                                            </ui:Target>
+                                                          </ui:FindChildren.Target>
+                                                          <sap:WorkflowViewStateService.ViewState>
+                                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                              <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                                                            </scg:Dictionary>
+                                                          </sap:WorkflowViewStateService.ViewState>
+                                                        </ui:FindChildren>
+                                                        <ui:ForEach x:TypeArguments="ui:UiElement" CurrentIndex="{x:Null}" DisplayName="For Each currentUiElement" sap:VirtualizedContainerService.HintSize="625.6,1061.6" sap2010:WorkflowViewState.IdRef="ForEach`1_7" Values="[children호]">
+                                                          <ui:ForEach.Body>
+                                                            <ActivityAction x:TypeArguments="ui:UiElement">
+                                                              <ActivityAction.Argument>
+                                                                <DelegateInArgument x:TypeArguments="ui:UiElement" Name="currentUiElement" />
+                                                              </ActivityAction.Argument>
+                                                              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="592,915.2" sap2010:WorkflowViewState.IdRef="Sequence_71">
+                                                                <sap:WorkflowViewStateService.ViewState>
+                                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                    <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                                                                  </scg:Dictionary>
+                                                                </sap:WorkflowViewStateService.ViewState>
+                                                                <uix:NGetText DisplayName="엘리먼트 글자 추출 | Get Text" sap:VirtualizedContainerService.HintSize="529.6,169.6" sap2010:WorkflowViewState.IdRef="NGetText_13" InUiElement="[currentUiElement]" TextString="[strchilderen호]" Version="V3">
+                                                                  <sap:WorkflowViewStateService.ViewState>
+                                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                      <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                                                                    </scg:Dictionary>
+                                                                  </sap:WorkflowViewStateService.ViewState>
+                                                                </uix:NGetText>
+                                                                <ui:IfElseIfV2 Condition="[strchilderen호= str호]" DisplayName="아닐 경우" sap:VirtualizedContainerService.HintSize="529.6,656.8" sap2010:WorkflowViewState.IdRef="IfElseIfV2_6">
+                                                                  <ui:IfElseIfV2.Else>
+                                                                    <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,24.8" sap2010:WorkflowViewState.IdRef="Sequence_69">
+                                                                      <sap:WorkflowViewStateService.ViewState>
+                                                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                        </scg:Dictionary>
+                                                                      </sap:WorkflowViewStateService.ViewState>
+                                                                    </Sequence>
+                                                                  </ui:IfElseIfV2.Else>
+                                                                  <ui:IfElseIfV2.ElseIfs>
+                                                                    <sc:BindingList x:TypeArguments="ui:IfElseIfBlock" AllowEdit="True" AllowNew="True" AllowRemove="True" RaiseListChangedEvents="True">
+                                                                      <ui:IfElseIfBlock BlockType="ElseIf" Condition="[strchilderen호.Contains(str호)]" DisplayName="If else if block" sap2010:WorkflowViewState.IdRef="IfElseIfBlock_7">
+                                                                        <ui:IfElseIfBlock.Then>
+                                                                          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="496,342.4" sap2010:WorkflowViewState.IdRef="Sequence_68">
+                                                                            <sap:WorkflowViewStateService.ViewState>
+                                                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                                <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                                                                              </scg:Dictionary>
+                                                                            </sap:WorkflowViewStateService.ViewState>
+                                                                            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click" sap:VirtualizedContainerService.HintSize="433.6,205.6" sap2010:WorkflowViewState.IdRef="NClick_29" InUiElement="[currentUiElement]" KeyModifiers="None" MouseButton="Left" Version="V3">
+                                                                              <uix:NClick.VerifyOptions>
+                                                                                <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                                                                                  <uix:VerifyExecutionOptions.Retry>
+                                                                                    <InArgument x:TypeArguments="x:Boolean" />
+                                                                                  </uix:VerifyExecutionOptions.Retry>
+                                                                                  <uix:VerifyExecutionOptions.Timeout>
+                                                                                    <InArgument x:TypeArguments="x:Double" />
+                                                                                  </uix:VerifyExecutionOptions.Timeout>
+                                                                                </uix:VerifyExecutionOptions>
+                                                                              </uix:NClick.VerifyOptions>
+                                                                              <sap:WorkflowViewStateService.ViewState>
+                                                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                                  <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                                                                                </scg:Dictionary>
+                                                                              </sap:WorkflowViewStateService.ViewState>
+                                                                            </uix:NClick>
+                                                                            <ui:Break sap:VirtualizedContainerService.HintSize="433.6,48" sap2010:WorkflowViewState.IdRef="Break_10" />
+                                                                          </Sequence>
+                                                                        </ui:IfElseIfBlock.Then>
+                                                                      </ui:IfElseIfBlock>
+                                                                    </sc:BindingList>
+                                                                  </ui:IfElseIfV2.ElseIfs>
+                                                                  <sap:WorkflowViewStateService.ViewState>
+                                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                      <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                                                                    </scg:Dictionary>
+                                                                  </sap:WorkflowViewStateService.ViewState>
+                                                                  <ui:IfElseIfV2.Then>
+                                                                    <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,24.8" sap2010:WorkflowViewState.IdRef="Sequence_67">
+                                                                      <sap:WorkflowViewStateService.ViewState>
+                                                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                                        </scg:Dictionary>
+                                                                      </sap:WorkflowViewStateService.ViewState>
+                                                                      <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click" sap:VirtualizedContainerService.HintSize="353.6,205.6" sap2010:WorkflowViewState.IdRef="NClick_28" InUiElement="[currentUiElement]" KeyModifiers="None" MouseButton="Left" Version="V3">
+                                                                        <uix:NClick.VerifyOptions>
+                                                                          <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                                                                            <uix:VerifyExecutionOptions.Retry>
+                                                                              <InArgument x:TypeArguments="x:Boolean" />
+                                                                            </uix:VerifyExecutionOptions.Retry>
+                                                                            <uix:VerifyExecutionOptions.Timeout>
+                                                                              <InArgument x:TypeArguments="x:Double" />
+                                                                            </uix:VerifyExecutionOptions.Timeout>
+                                                                          </uix:VerifyExecutionOptions>
+                                                                        </uix:NClick.VerifyOptions>
+                                                                        <sap:WorkflowViewStateService.ViewState>
+                                                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                            <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                                                                          </scg:Dictionary>
+                                                                        </sap:WorkflowViewStateService.ViewState>
+                                                                      </uix:NClick>
+                                                                      <ui:Break sap:VirtualizedContainerService.HintSize="353.6,48" sap2010:WorkflowViewState.IdRef="Break_8" />
+                                                                    </Sequence>
+                                                                  </ui:IfElseIfV2.Then>
+                                                                </ui:IfElseIfV2>
+                                                              </Sequence>
+                                                            </ActivityAction>
+                                                          </ui:ForEach.Body>
+                                                          <sap:WorkflowViewStateService.ViewState>
+                                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                              <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                                                            </scg:Dictionary>
+                                                          </sap:WorkflowViewStateService.ViewState>
+                                                        </ui:ForEach>
+                                                        <ui:Break sap:VirtualizedContainerService.HintSize="625.6,48" sap2010:WorkflowViewState.IdRef="Break_9" />
+                                                      </Sequence>
+                                                    </ui:IfElseIfBlock.Then>
+                                                  </ui:IfElseIfBlock>
+                                                </sc:BindingList>
+                                              </ui:IfElseIfV2.ElseIfs>
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                </scg:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                              <ui:IfElseIfV2.Then>
+                                                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,522.4" sap2010:WorkflowViewState.IdRef="Sequence_54">
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                      <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                  <uix:NSelectItem DisplayName="Select Item 'SELECT dong'" sap:VirtualizedContainerService.HintSize="353.6,189.6" sap2010:WorkflowViewState.IdRef="NSelectItem_11" Item="[str동]" ScopeIdentifier="60498e6c-1372-42a2-8775-80920e0ff8fe" Version="V3">
+                                                    <uix:NSelectItem.Items>
+                                                      <scg:List x:TypeArguments="x:String" Capacity="6">
+                                                        <x:String>101</x:String>
+                                                        <x:String>102</x:String>
+                                                        <x:String>103</x:String>
+                                                        <x:String>104</x:String>
+                                                        <x:String>105</x:String>
+                                                        <x:String>106</x:String>
+                                                      </scg:List>
+                                                    </uix:NSelectItem.Items>
+                                                    <uix:NSelectItem.Target>
+                                                      <uix:TargetAnchorable BrowserURL="https://www.realtyprice.kr/notice/town/nfSiteLink.htm" DesignTimeRectangle="1233, 879, 123, 194" DesignTimeScaleFactor="1.25" ElementType="DropDown" FullSelectorArgument="&lt;webctrl id='dong' tag='SELECT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='dong' tag='SELECT' type='' class='dongho' aaname='' /&gt;" Guid="fde6c317-af65-4677-953f-525ca2cbfcfd" InformativeScreenshot="723d9aef7bd2de89e83b9e7000fbbe91.png" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='NOTICE' title='부동산공시가격 알리미' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V4" Visibility="Interactive" />
+                                                    </uix:NSelectItem.Target>
+                                                    <sap:WorkflowViewStateService.ViewState>
+                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                        <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                      </scg:Dictionary>
+                                                    </sap:WorkflowViewStateService.ViewState>
+                                                  </uix:NSelectItem>
+                                                  <ui:FindChildren Children="[children호]" DisplayName="Find Children 'SELECT  ho'" Filter="&lt;webctrl /&gt;" sap:VirtualizedContainerService.HintSize="353.6,139.2" sap2010:WorkflowViewState.IdRef="FindChildren_7" Scope="FIND_CHILDREN">
+                                                    <ui:FindChildren.Target>
+                                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="332a0d24-5dbb-4fe4-a39d-357d3bdf8b02" InformativeScreenshot="3a723abd91eaa7c0024593b871a063b0" Selector="&lt;webctrl id='ho' tag='SELECT' /&gt;">
+                                                        <ui:Target.TimeoutMS>
+                                                          <InArgument x:TypeArguments="x:Int32" />
+                                                        </ui:Target.TimeoutMS>
+                                                        <ui:Target.WaitForReady>
+                                                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                                                        </ui:Target.WaitForReady>
+                                                      </ui:Target>
+                                                    </ui:FindChildren.Target>
+                                                    <sap:WorkflowViewStateService.ViewState>
+                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                        <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                      </scg:Dictionary>
+                                                    </sap:WorkflowViewStateService.ViewState>
+                                                  </ui:FindChildren>
+                                                  <ui:ForEach x:TypeArguments="ui:UiElement" CurrentIndex="{x:Null}" DisplayName="For Each currentUiElement" sap:VirtualizedContainerService.HintSize="353.6,56.8" sap2010:WorkflowViewState.IdRef="ForEach`1_4" Values="[children호]">
+                                                    <ui:ForEach.Body>
+                                                      <ActivityAction x:TypeArguments="ui:UiElement">
+                                                        <ActivityAction.Argument>
+                                                          <DelegateInArgument x:TypeArguments="ui:UiElement" Name="currentUiElement" />
+                                                        </ActivityAction.Argument>
+                                                        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="512,1415.2" sap2010:WorkflowViewState.IdRef="Sequence_59">
+                                                          <sap:WorkflowViewStateService.ViewState>
+                                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                              <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                                                            </scg:Dictionary>
+                                                          </sap:WorkflowViewStateService.ViewState>
+                                                          <uix:NGetText DisplayName="엘리먼트 글자 추출 | Get Text" sap:VirtualizedContainerService.HintSize="449.6,169.6" sap2010:WorkflowViewState.IdRef="NGetText_12" InUiElement="[currentUiElement]" TextString="[strchilderen호]" Version="V3">
+                                                            <sap:WorkflowViewStateService.ViewState>
+                                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                                                              </scg:Dictionary>
+                                                            </sap:WorkflowViewStateService.ViewState>
+                                                          </uix:NGetText>
+                                                          <ui:IfElseIfV2 Condition="[strchilderen호= str호]" DisplayName="아닐 경우" sap:VirtualizedContainerService.HintSize="449.6,914.4" sap2010:WorkflowViewState.IdRef="IfElseIfV2_4">
+                                                            <ui:IfElseIfV2.Else>
+                                                              <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,104.8" sap2010:WorkflowViewState.IdRef="Sequence_57">
+                                                                <sap:WorkflowViewStateService.ViewState>
+                                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                    <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                                                                  </scg:Dictionary>
+                                                                </sap:WorkflowViewStateService.ViewState>
+                                                              </Sequence>
+                                                            </ui:IfElseIfV2.Else>
+                                                            <ui:IfElseIfV2.ElseIfs>
+                                                              <sc:BindingList x:TypeArguments="ui:IfElseIfBlock" AllowEdit="True" AllowNew="True" AllowRemove="True" RaiseListChangedEvents="True">
+                                                                <ui:IfElseIfBlock BlockType="ElseIf" Condition="[strchilderen호.Contains(str호)]" DisplayName="If else if block" sap2010:WorkflowViewState.IdRef="IfElseIfBlock_5">
+                                                                  <ui:IfElseIfBlock.Then>
+                                                                    <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="416,342.4" sap2010:WorkflowViewState.IdRef="Sequence_56">
+                                                                      <sap:WorkflowViewStateService.ViewState>
+                                                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                          <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                                                                        </scg:Dictionary>
+                                                                      </sap:WorkflowViewStateService.ViewState>
+                                                                      <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click" sap:VirtualizedContainerService.HintSize="353.6,205.6" sap2010:WorkflowViewState.IdRef="NClick_22" InUiElement="[currentUiElement]" KeyModifiers="None" MouseButton="Left" Version="V3">
+                                                                        <uix:NClick.VerifyOptions>
+                                                                          <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                                                                            <uix:VerifyExecutionOptions.Retry>
+                                                                              <InArgument x:TypeArguments="x:Boolean" />
+                                                                            </uix:VerifyExecutionOptions.Retry>
+                                                                            <uix:VerifyExecutionOptions.Timeout>
+                                                                              <InArgument x:TypeArguments="x:Double" />
+                                                                            </uix:VerifyExecutionOptions.Timeout>
+                                                                          </uix:VerifyExecutionOptions>
+                                                                        </uix:NClick.VerifyOptions>
+                                                                        <sap:WorkflowViewStateService.ViewState>
+                                                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                            <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                                                                          </scg:Dictionary>
+                                                                        </sap:WorkflowViewStateService.ViewState>
+                                                                      </uix:NClick>
+                                                                      <ui:Break sap:VirtualizedContainerService.HintSize="353.6,48" sap2010:WorkflowViewState.IdRef="Break_11" />
+                                                                    </Sequence>
+                                                                  </ui:IfElseIfBlock.Then>
+                                                                </ui:IfElseIfBlock>
+                                                              </sc:BindingList>
+                                                            </ui:IfElseIfV2.ElseIfs>
+                                                            <sap:WorkflowViewStateService.ViewState>
+                                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                                                              </scg:Dictionary>
+                                                            </sap:WorkflowViewStateService.ViewState>
+                                                            <ui:IfElseIfV2.Then>
+                                                              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,193.6" sap2010:WorkflowViewState.IdRef="Sequence_55">
+                                                                <sap:WorkflowViewStateService.ViewState>
+                                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                    <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                                                                  </scg:Dictionary>
+                                                                </sap:WorkflowViewStateService.ViewState>
+                                                                <uix:NSelectItem DisplayName="Select Item 'SELECT ho'" sap:VirtualizedContainerService.HintSize="353.6,56.8" sap2010:WorkflowViewState.IdRef="NSelectItem_10" Item="[str호]" ScopeIdentifier="60498e6c-1372-42a2-8775-80920e0ff8fe" Version="V3">
+                                                                  <uix:NSelectItem.Items>
+                                                                    <scg:List x:TypeArguments="x:String" Capacity="50">
+                                                                      <x:String>101</x:String>
+                                                                      <x:String>102</x:String>
+                                                                      <x:String>103</x:String>
+                                                                      <x:String>104</x:String>
+                                                                      <x:String>105</x:String>
+                                                                      <x:String>106</x:String>
+                                                                      <x:String>107</x:String>
+                                                                      <x:String>109</x:String>
+                                                                      <x:String>110</x:String>
+                                                                      <x:String>111</x:String>
+                                                                      <x:String>112</x:String>
+                                                                      <x:String>113</x:String>
+                                                                      <x:String>114</x:String>
+                                                                      <x:String>115</x:String>
+                                                                      <x:String>116</x:String>
+                                                                      <x:String>201</x:String>
+                                                                      <x:String>202</x:String>
+                                                                      <x:String>203</x:String>
+                                                                      <x:String>204</x:String>
+                                                                      <x:String>205</x:String>
+                                                                      <x:String>206</x:String>
+                                                                      <x:String>207</x:String>
+                                                                      <x:String>208</x:String>
+                                                                      <x:String>209</x:String>
+                                                                      <x:String>210</x:String>
+                                                                      <x:String>211</x:String>
+                                                                      <x:String>212</x:String>
+                                                                      <x:String>213</x:String>
+                                                                      <x:String>214</x:String>
+                                                                      <x:String>215</x:String>
+                                                                      <x:String>216</x:String>
+                                                                      <x:String>301</x:String>
+                                                                      <x:String>302</x:String>
+                                                                      <x:String>303</x:String>
+                                                                      <x:String>304</x:String>
+                                                                      <x:String>305</x:String>
+                                                                      <x:String>306</x:String>
+                                                                      <x:String>307</x:String>
+                                                                      <x:String>308</x:String>
+                                                                      <x:String>309</x:String>
+                                                                      <x:String>310</x:String>
+                                                                      <x:String>311</x:String>
+                                                                      <x:String>312</x:String>
+                                                                      <x:String>313</x:String>
+                                                                      <x:String>314</x:String>
+                                                                      <x:String>315</x:String>
+                                                                      <x:String>316</x:String>
+                                                                      <x:String>401</x:String>
+                                                                      <x:String>402</x:String>
+                                                                      <x:String>403</x:String>
+                                                                    </scg:List>
+                                                                  </uix:NSelectItem.Items>
+                                                                  <uix:NSelectItem.Target>
+                                                                    <uix:TargetAnchorable BrowserURL="https://www.realtyprice.kr/notice/town/nfSiteLink.htm" DesignTimeRectangle="1395, 879, 122, 194" DesignTimeScaleFactor="1.25" ElementType="DropDown" FullSelectorArgument="&lt;webctrl id='ho' tag='SELECT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='ho' tag='SELECT' type='' class='dongho' aaname='' /&gt;" Guid="48747db6-0c59-44e0-bbad-3114a87fe145" InformativeScreenshot="c41bda4ceaf9e7794dbd8376b26ce903.png" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='NOTICE' title='부동산공시가격 알리미' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V4" Visibility="Interactive" />
+                                                                  </uix:NSelectItem.Target>
+                                                                  <sap:WorkflowViewStateService.ViewState>
+                                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                                    </scg:Dictionary>
+                                                                  </sap:WorkflowViewStateService.ViewState>
+                                                                </uix:NSelectItem>
+                                                                <ui:Break sap:VirtualizedContainerService.HintSize="353.6,48" sap2010:WorkflowViewState.IdRef="Break_5" />
+                                                              </Sequence>
+                                                            </ui:IfElseIfV2.Then>
+                                                          </ui:IfElseIfV2>
+                                                          <ui:ForEach x:TypeArguments="ui:UiElement" CurrentIndex="{x:Null}" DisplayName="For Each currentUiElement" sap:VirtualizedContainerService.HintSize="449.6,242.4" sap2010:WorkflowViewState.IdRef="ForEach`1_5" Values="[children호]">
+                                                            <ui:ForEach.Body>
+                                                              <ActivityAction x:TypeArguments="ui:UiElement">
+                                                                <ActivityAction.Argument>
+                                                                  <DelegateInArgument x:TypeArguments="ui:UiElement" Name="currentUiElement" />
+                                                                </ActivityAction.Argument>
+                                                                <Sequence DisplayName="본문" sap:VirtualizedContainerService.HintSize="416,104.8" sap2010:WorkflowViewState.IdRef="Sequence_58">
+                                                                  <sap:WorkflowViewStateService.ViewState>
+                                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                      <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                                                                    </scg:Dictionary>
+                                                                  </sap:WorkflowViewStateService.ViewState>
+                                                                </Sequence>
+                                                              </ActivityAction>
+                                                            </ui:ForEach.Body>
+                                                            <sap:WorkflowViewStateService.ViewState>
+                                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                              </scg:Dictionary>
+                                                            </sap:WorkflowViewStateService.ViewState>
+                                                          </ui:ForEach>
+                                                        </Sequence>
+                                                      </ActivityAction>
+                                                    </ui:ForEach.Body>
+                                                    <sap:WorkflowViewStateService.ViewState>
+                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                      </scg:Dictionary>
+                                                    </sap:WorkflowViewStateService.ViewState>
+                                                  </ui:ForEach>
+                                                  <ui:Break sap:VirtualizedContainerService.HintSize="353.6,48" sap2010:WorkflowViewState.IdRef="Break_7" />
+                                                </Sequence>
+                                              </ui:IfElseIfV2.Then>
+                                            </ui:IfElseIfV2>
+                                          </Sequence>
+                                        </ActivityAction>
+                                      </ui:ForEach.Body>
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                    </ui:ForEach>
+                                  </Sequence>
+                                </If.Else>
+                              </If>
+                            </Sequence>
+                          </If.Else>
+                        </If>
+                        <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="열람하기버튼 | Click 'INPUT'" sap:VirtualizedContainerService.HintSize="641.6,49.6" sap2010:WorkflowViewState.IdRef="NClick_8" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="60498e6c-1372-42a2-8775-80920e0ff8fe" Version="V3">
+                          <uix:NClick.Target>
+                            <uix:TargetAnchorable BrowserURL="https://www.realtyprice.kr/notice/town/nfSiteLink.htm" CVScreenId="358709ee-bd97-4f8a-9c3e-07a98cd8f070" CvElementArea="1015, 854, 174, 45" CvTextArea="1070, 866, 61, 18" CvTextArgument="g1g877I" CvType="Button" DesignTimeRectangle="1018, 858, 169, 40" DesignTimeScaleFactor="1.25" ElementType="Icon" FullSelectorArgument="&lt;webctrl parentid='aptForm' tag='INPUT' type='image' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='aptForm' tag='INPUT' type='image' class='btn-src3' aaname='검색' /&gt;" Guid="5f85bdbc-d8ec-4547-9302-027ca21b7438" InformativeScreenshot="c1dd75a957b30070ebc5433835fe894f.png" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='NOTICE' title='부동산공시가격 알리미' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V4" Visibility="Interactive" />
+                          </uix:NClick.Target>
+                          <uix:NClick.VerifyOptions>
+                            <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                              <uix:VerifyExecutionOptions.Retry>
+                                <InArgument x:TypeArguments="x:Boolean" />
+                              </uix:VerifyExecutionOptions.Retry>
+                              <uix:VerifyExecutionOptions.Timeout>
+                                <InArgument x:TypeArguments="x:Double" />
+                              </uix:VerifyExecutionOptions.Timeout>
+                            </uix:VerifyExecutionOptions>
+                          </uix:NClick.VerifyOptions>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </uix:NClick>
+                      </Sequence>
+                      <Sequence DisplayName="공시기준일/공동주택가격 저장 | Sequence" sap:VirtualizedContainerService.HintSize="704,56.8" sap2010:WorkflowViewState.IdRef="Sequence_29">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <uix:NGetText DisplayName="Get Text '공시기준'" sap:VirtualizedContainerService.HintSize="479.2,56.8" sap2010:WorkflowViewState.IdRef="NGetText_2" ScopeIdentifier="60498e6c-1372-42a2-8775-80920e0ff8fe" TextString="[str공시기준일]" Version="V3">
+                          <uix:NGetText.Target>
+                            <uix:TargetAnchorable BrowserURL="https://www.realtyprice.kr/notice/town/nfSiteLink.htm" CVScreenId="14d68274-e065-401e-a4fc-a68b6828cba1" CvTextArea="600, 825, 57, 16" CvType="AnyWordGroup" DesignTimeRectangle="584, 795, 95, 78" DesignTimeScaleFactor="1.25" ElementType="Text" FullSelectorArgument="&lt;webctrl parentid='print_page' tag='TABLE' /&gt;&lt;webctrl tableRow='2' tag='TD' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='print_page' tag='TABLE' /&gt;&lt;webctrl type='' tag='TD' class='' /&gt;" Guid="db1802fe-ac12-487e-8970-5f6f1dfaa31e" InformativeScreenshot="e35790b2c467ecde9fa1aac9fa699605.png" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='NOTICE' title='부동산공시가격 알리미' /&gt;" SearchSteps="FuzzySelector" Version="V4" Visibility="Interactive">
+                              <uix:TargetAnchorable.Anchors>
+                                <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                  <uix:Target CVScreenId="14d68274-e065-401e-a4fc-a68b6828cba1" CvTextArea="595, 761, 68, 17" CvTextArgument="dA7IE" CvType="Text" DesignTimeRectangle="584, 747, 95, 49" ElementType="Text" FullSelectorArgument="&lt;webctrl parentid='print_page' tag='TABLE' /&gt;&lt;webctrl tableRow='1' tag='TH' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='print_page' tag='TABLE' /&gt;&lt;webctrl type='' tag='TH' class='' aaname='공시기준' check:innerText='공시기준' /&gt;" Guid="5f25ab4c-9659-46d0-bcbe-03266d6a7bca" SearchSteps="Selector, FuzzySelector" />
+                                </scg:List>
+                              </uix:TargetAnchorable.Anchors>
+                            </uix:TargetAnchorable>
+                          </uix:NGetText.Target>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </uix:NGetText>
+                        <uix:NGetText DisplayName="Get Text '공동주택가격(원)'" sap:VirtualizedContainerService.HintSize="479.2,56.8" sap2010:WorkflowViewState.IdRef="NGetText_3" ScopeIdentifier="60498e6c-1372-42a2-8775-80920e0ff8fe" TextString="[str공동주택가격]" Version="V3">
+                          <uix:NGetText.Target>
+                            <uix:TargetAnchorable BrowserURL="https://www.realtyprice.kr/notice/town/nfSiteLink.htm" CVScreenId="14d68274-e065-401e-a4fc-a68b6828cba1" CvTextArea="1399, 825, 77, 16" CvType="AnyWordGroup" DesignTimeRectangle="1402, 826, 74, 16" DesignTimeScaleFactor="1.25" ElementType="Text" FullSelectorArgument="&lt;webctrl parentid='print_page' tag='TABLE' /&gt;&lt;webctrl id='opinNoticeAmt' tableRow='2' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='print_page' tag='TABLE' /&gt;&lt;webctrl id='opinNoticeAmt' type='' tag='SPAN' class='' /&gt;" Guid="c124d490-09a9-405f-a043-27e4b7d2bc48" InformativeScreenshot="6b42969b3a95757dfc72f81d9dfa904b.png" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='NOTICE' title='부동산공시가격 알리미' /&gt;" SearchSteps="FuzzySelector" Version="V4" Visibility="Interactive">
+                              <uix:TargetAnchorable.Anchors>
+                                <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                  <uix:Target CVScreenId="14d68274-e065-401e-a4fc-a68b6828cba1" CvTextArea="1370, 760, 135, 18" CvTextArgument="d57572(2)" CvType="Text" DesignTimeRectangle="1344, 747, 190, 49" ElementType="Text" FullSelectorArgument="&lt;webctrl parentid='print_page' tag='TABLE' /&gt;&lt;webctrl aaname='공동주택가격(원)' tableRow='1' tag='TH' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='print_page' tag='TABLE' /&gt;&lt;webctrl aaname='공동주택가격(원)' type='' tag='TH' class='' check:innerText='공동주택가격(원)' /&gt;" Guid="5eea7e81-3c97-43b6-a815-1cd9584e66d8" SearchSteps="Selector, FuzzySelector" />
+                                </scg:List>
+                              </uix:TargetAnchorable.Anchors>
+                            </uix:TargetAnchorable>
+                          </uix:NGetText.Target>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </uix:NGetText>
+                        <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="479.2,172.8" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
+                          <ui:MultipleAssign.AssignOperations>
+                            <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_12">
+                                <ui:AssignOperation.To>
+                                  <OutArgument x:TypeArguments="x:Object">[CurrentRow("공시기준일")]</OutArgument>
+                                </ui:AssignOperation.To>
+                                <ui:AssignOperation.Value>
+                                  <InArgument x:TypeArguments="x:String">[str공시기준일]</InArgument>
+                                </ui:AssignOperation.Value>
+                              </ui:AssignOperation>
+                              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_13">
+                                <ui:AssignOperation.To>
+                                  <OutArgument x:TypeArguments="x:Object">[CurrentRow("공시기준일 가격(￦)")]</OutArgument>
+                                </ui:AssignOperation.To>
+                                <ui:AssignOperation.Value>
+                                  <InArgument x:TypeArguments="x:Object">[str공동주택가격]</InArgument>
+                                </ui:AssignOperation.Value>
+                              </ui:AssignOperation>
+                            </scg:List>
+                          </ui:MultipleAssign.AssignOperations>
+                        </ui:MultipleAssign>
+                      </Sequence>
+                      <uix:NGoToUrl DisplayName="Go To URL" sap:VirtualizedContainerService.HintSize="704,56.8" sap2010:WorkflowViewState.IdRef="NGoToUrl_2" Url="https://www.realtyprice.kr/notice/town/nfSiteLink.htm" Version="V3">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </uix:NGoToUrl>
+                      <Delay DisplayName=" Delay 1 second" Duration="00:00:01" sap:VirtualizedContainerService.HintSize="704,49.6" sap2010:WorkflowViewState.IdRef="Delay_2">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </Delay>
                     </Sequence>
                   </ActivityAction>
                 </uix:NApplicationCard.Body>
                 <uix:NApplicationCard.TargetApp>
                   <uix:TargetApp Area="524, 102, 1339, 1018" BrowserType="Chrome" IconBase64="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" InformativeScreenshot="70281c6890912db77f486d80619580da.jpg" Selector="&lt;html app='chrome.exe' htmlwindowname='NOTICE' title='부동산공시가격 알리미' /&gt;" Title="부동산공시가격 알리미" Url="https://www.realtyprice.kr/notice/town/nfSiteLink.htm" />
                 </uix:NApplicationCard.TargetApp>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
               </uix:NApplicationCard>
+              <Sequence DisplayName="변동 비교 및 DT 저장 | Sequence" sap:VirtualizedContainerService.HintSize="800,48" sap2010:WorkflowViewState.IdRef="Sequence_30">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <If Condition="[IsNumeric(CurrentRow(&quot;기준가격(￦)&quot;).ToString.Trim())]" sap:VirtualizedContainerService.HintSize="449.6,211.2" sap2010:WorkflowViewState.IdRef="If_8">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <If.Then>
+                    <Sequence DisplayName="기준가격 숫자로 변환 가능한 경우 | Then" sap:VirtualizedContainerService.HintSize="416,24.8" sap2010:WorkflowViewState.IdRef="Sequence_41">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:IfElseIfV2 Condition="[CInt(CurrentRow(&quot;기준가격(￦)&quot;)) &gt; CInt(CurrentRow(&quot;공시기준일 가격(￦)&quot;))]" DisplayName="아닐 경우" sap:VirtualizedContainerService.HintSize="631.2,396" sap2010:WorkflowViewState.IdRef="IfElseIfV2_1">
+                        <ui:IfElseIfV2.Else>
+                          <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,24.8" sap2010:WorkflowViewState.IdRef="Sequence_35">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </Sequence>
+                        </ui:IfElseIfV2.Else>
+                        <ui:IfElseIfV2.ElseIfs>
+                          <sc:BindingList x:TypeArguments="ui:IfElseIfBlock" AllowEdit="True" AllowNew="True" AllowRemove="True" RaiseListChangedEvents="True">
+                            <ui:IfElseIfBlock BlockType="ElseIf" Condition="[CInt(CurrentRow(&quot;기준가격(￦)&quot;)) &lt; CInt(CurrentRow(&quot;공시기준일 가격(￦)&quot;))]" DisplayName="If else if block" sap2010:WorkflowViewState.IdRef="IfElseIfBlock_1">
+                              <ui:IfElseIfBlock.Then>
+                                <Sequence DisplayName="가격 상승 | Body" sap:VirtualizedContainerService.HintSize="416,24.8" sap2010:WorkflowViewState.IdRef="Sequence_34">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <Assign sap:VirtualizedContainerService.HintSize="433.6,104.8" sap2010:WorkflowViewState.IdRef="Assign_7">
+                                    <Assign.To>
+                                      <OutArgument x:TypeArguments="x:Object">[CurrentRow("변동")]</OutArgument>
+                                    </Assign.To>
+                                    <Assign.Value>
+                                      <InArgument x:TypeArguments="x:Object">["상승"]</InArgument>
+                                    </Assign.Value>
+                                  </Assign>
+                                </Sequence>
+                              </ui:IfElseIfBlock.Then>
+                            </ui:IfElseIfBlock>
+                            <ui:IfElseIfBlock BlockType="ElseIf" Condition="[CInt(CurrentRow(&quot;기준가격(￦)&quot;)) = CInt(CurrentRow(&quot;공시기준일 가격(￦)&quot;))]" DisplayName="If else if block" sap2010:WorkflowViewState.IdRef="IfElseIfBlock_2">
+                              <ui:IfElseIfBlock.Then>
+                                <Sequence DisplayName="가격 상동 | Body" sap:VirtualizedContainerService.HintSize="416,24.8" sap2010:WorkflowViewState.IdRef="Sequence_36">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <Assign sap:VirtualizedContainerService.HintSize="433.6,104.8" sap2010:WorkflowViewState.IdRef="Assign_9">
+                                    <Assign.To>
+                                      <OutArgument x:TypeArguments="x:Object">[CurrentRow("변동")]</OutArgument>
+                                    </Assign.To>
+                                    <Assign.Value>
+                                      <InArgument x:TypeArguments="x:Object">["상동"]</InArgument>
+                                    </Assign.Value>
+                                  </Assign>
+                                </Sequence>
+                              </ui:IfElseIfBlock.Then>
+                            </ui:IfElseIfBlock>
+                          </sc:BindingList>
+                        </ui:IfElseIfV2.ElseIfs>
+                        <ui:IfElseIfV2.Then>
+                          <Sequence DisplayName="가격 하락 | Then" sap:VirtualizedContainerService.HintSize="416,136.8" sap2010:WorkflowViewState.IdRef="Sequence_33">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <Assign sap:VirtualizedContainerService.HintSize="353.6,48" sap2010:WorkflowViewState.IdRef="Assign_6">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:Object">[CurrentRow("변동")]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:Object">["하락"]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                          </Sequence>
+                        </ui:IfElseIfV2.Then>
+                      </ui:IfElseIfV2>
+                    </Sequence>
+                  </If.Then>
+                  <If.Else>
+                    <Sequence DisplayName="숫자 변환 안되는 경우 | Else" sap:VirtualizedContainerService.HintSize="416,24.8" sap2010:WorkflowViewState.IdRef="Sequence_42">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <Assign sap:VirtualizedContainerService.HintSize="433.6,104.8" sap2010:WorkflowViewState.IdRef="Assign_8">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:Object">[CurrentRow("변동")]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:Object">["정보 비교 불가"]</InArgument>
+                        </Assign.Value>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </Assign>
+                    </Sequence>
+                  </If.Else>
+                </If>
+              </Sequence>
             </Sequence>
           </ActivityAction>
         </ui:ForEachRow.Body>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsPinned">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
       </ui:ForEachRow>
     </Sequence>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="733.6,165.6" sap2010:WorkflowViewState.IdRef="LogMessage_2" Message="[&quot;RPA06_부동산공시가격 끝 &gt;&gt;&gt;&gt;&quot;]">
+    <ui:WriteRange StartingCell="{x:Null}" AddHeaders="True" DataTable="[dt엑셀회원목록]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="449.6,56.8" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="회원목록" WorkbookPath="프로젝트\RPA06_부동산공시가격\Data\부동산공시가격_20240911_박희수.xlsx">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:WriteRange>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="449.6,48" sap2010:WorkflowViewState.IdRef="LogMessage_2" Message="[&quot;RPA06_부동산공시가격 끝 &gt;&gt;&gt;&gt;&quot;]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
