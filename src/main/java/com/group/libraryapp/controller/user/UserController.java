@@ -17,12 +17,10 @@ import java.util.List;
 @RestController
 public class UserController {
 
-    private final JdbcTemplate jdbcTemplate;
     private final UserService userService;
 
-    public UserController(JdbcTemplate jdbcTemplate){
-        this.jdbcTemplate = jdbcTemplate;
-        this.userService = new UserService(jdbcTemplate);
+    public UserController(UserService userService){
+        this.userService = userService;
     }
 
     @PostMapping("/user")
@@ -52,7 +50,7 @@ public class UserController {
 
     @PutMapping("/user")
     public void updateUser(@RequestBody UserUpdateRequest request) {
-        userService.updateUser(jdbcTemplate, request);
+        userService.updateUser(request);
     }
 
     @DeleteMapping("/user")
