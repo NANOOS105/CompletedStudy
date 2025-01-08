@@ -5,11 +5,11 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-
-public class UserRepository {
+@Repository
+public class UserJdbcRepository {
 
         private final JdbcTemplate jdbcTemplate;
-        public UserRepository(JdbcTemplate jdbcTemplate) {
+        public UserJdbcRepository(JdbcTemplate jdbcTemplate) {
             this.jdbcTemplate = jdbcTemplate;
         }
 
