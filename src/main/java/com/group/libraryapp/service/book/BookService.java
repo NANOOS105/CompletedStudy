@@ -6,15 +6,11 @@ import com.group.libraryapp.domain.user.User;
 import com.group.libraryapp.domain.user.UserLoanHistory;
 import com.group.libraryapp.domain.user.UserLoanHistoryRepository;
 import com.group.libraryapp.domain.user.UserRepository;
-import com.group.libraryapp.dto.book.BookCreateRequest;
-import com.group.libraryapp.dto.book.BookLoanRequest;
-import com.group.libraryapp.dto.book.BookReturnRequest;
-import com.group.libraryapp.dto.book.request.SaveBookRequest;
-import com.group.libraryapp.repository.book.BookMemoryRepository;
+import com.group.libraryapp.dto.book.request.BookCreateRequest;
+import com.group.libraryapp.dto.book.request.BookLoanRequest;
+import com.group.libraryapp.dto.book.request.BookReturnRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 
 @Service
 public class BookService {
@@ -28,8 +24,7 @@ public class BookService {
     public BookService(
             BookRepository bookRepository,
             UserLoanHistoryRepository userLoanHistoryRepository,
-            UserRepository userRepository
-    ) {
+            UserRepository userRepository) {
         this.bookRepository = bookRepository;
         this.userLoanHistoryRepository = userLoanHistoryRepository;
         this.userRepository = userRepository;
