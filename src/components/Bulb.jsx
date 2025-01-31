@@ -17,8 +17,7 @@ const Bulb = ()=>{
             </button>
         </div>
 
-    )
-        ;
+    );
 };
 
 export default Bulb;
