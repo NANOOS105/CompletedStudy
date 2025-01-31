@@ -1,7 +1,8 @@
-const Button = ({ text, color = "black" }) => {
+const Button = ({ text, color = "black" ,children}) => {
     return(
         <button style={{ color: color }}>
             {text} - {color.toUpperCase()}
+            {children}
         </button>
     );
 };
