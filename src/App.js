@@ -1,9 +1,50 @@
-import logo from './logo.svg';
 import './App.css';
-import Viewer
+import Viewer from "./component/Viewer";
+import Controller from "./component/Controller";
+import {useEffect, useState, useRef} from "react";
+import Even from "./component/Even";
 
 function App() {
-  return  <>카운터 앱</>;
+
+    const isMount = useRef(false);
+    const [count,setCount] = useState(0);
+    const [input,setInput] = useState("");
+
+    //1. 마운드 : 탄생
+    useEffect(() => {
+        console.log("mount")
+    }, []);
+
+    //2. 업데이트 : 변화,리렌더링
+    useEffect(() => {
+        //진짜 업데이트 될때만 로그 찍히도록 하는 코드
+        if(!isMount.current){
+            isMount.current=true;
+            return;
+        }
+        console.log("update");
+    });
+    //3. 언마운트 : 죽음ㅁ
+    const onClickButton = (value) =>{
+        setCount(count +value);
+    };
+  return  (
+    <div className="App">
+        <h1>Simple Counter</h1>
+        <section>
+            <input value={input} onChange={(e)=>{
+                setInput(e.target.value)
+            }} />
+        </section>
+        <section>
+            <Viewer count={count}/>
+            {count % 2 === 0? <Even />: null}
+        </section>
+        <section>
+            <Controller onClickButton={onClickButton}/>
+        </section>
+    </div>
+  );
 }
 
 export default App;
