@@ -1,50 +1,27 @@
 import './App.css';
-import Viewer from "./component/Viewer";
-import Controller from "./component/Controller";
-import {useEffect, useState, useRef} from "react";
-import Even from "./component/Even";
+import Count from "./pages/Count";
+import {BrowserRouter as Router, Routes, Route, Link} from "react-router-dom";
+
+const Home = () => {
+    return <h1>홈 페이지입니다!</h1>;
+};
 
 function App() {
 
-    const isMount = useRef(false);
-    const [count,setCount] = useState(0);
-    const [input,setInput] = useState("");
-
-    //1. 마운드 : 탄생
-    useEffect(() => {
-        console.log("mount")
-    }, []);
-
-    //2. 업데이트 : 변화,리렌더링
-    useEffect(() => {
-        //진짜 업데이트 될때만 로그 찍히도록 하는 코드
-        if(!isMount.current){
-            isMount.current=true;
-            return;
-        }
-        console.log("update");
-    });
-    //3. 언마운트 : 죽음ㅁ
-    const onClickButton = (value) =>{
-        setCount(count +value);
-    };
   return  (
-    <div className="App">
-        <h1>Simple Counter</h1>
-        <section>
-            <input value={input} onChange={(e)=>{
-                setInput(e.target.value)
-            }} />
-        </section>
-        <section>
-            <Viewer count={count}/>
-            {count % 2 === 0? <Even />: null}
-        </section>
-        <section>
-            <Controller onClickButton={onClickButton}/>
-        </section>
-    </div>
+    <Router>
+        <nav>
+            <Link to="/">홈</Link> |
+            <Link to="/counter">Counter</Link>
+        </nav>
+
+        <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/counter" element={<Count />} />
+        </Routes>
+    </Router>
   );
 }
 
 export default App;
+
