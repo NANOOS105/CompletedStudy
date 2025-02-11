@@ -1,5 +1,6 @@
 import './App.css';
-import Count from "./pages/Count";
+import Count from "./count/pages/Count";
+import Todolist from "./todolist/pages/Todolist";
 import {BrowserRouter as Router, Routes, Route, Link} from "react-router-dom";
 
 const Home = () => {
@@ -13,11 +14,13 @@ function App() {
         <nav>
             <Link to="/">홈</Link> |
             <Link to="/counter">Counter</Link>
+            <Link to="/todolist">Todolist</Link>
         </nav>
 
         <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/counter" element={<Count />} />
+            <Route path="/todolist" element={<Todolist />} />
         </Routes>
     </Router>
   );
