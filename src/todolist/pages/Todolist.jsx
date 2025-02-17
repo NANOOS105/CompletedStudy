@@ -2,7 +2,7 @@ import Header from "../component/Header";
 import Editor from "../component/Editor";
 import List from "../component/List";
 import "./Todolist.css";
-import {useState} from "react";
+import {useState, useRef} from "react";
 const mockData=[
     {
         id: 0,
