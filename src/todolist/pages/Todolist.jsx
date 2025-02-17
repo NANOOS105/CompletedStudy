@@ -3,6 +3,7 @@ import Editor from "../component/Editor";
 import List from "../component/List";
 import "./Todolist.css";
 import {useState, useRef} from "react";
+
 const mockData=[
     {
         id: 0,
@@ -53,11 +54,16 @@ const Todolist = () => {
         );
     };
 
+    const onDelete = (targetId) => {
+      //인수 : todos 배열엣 targetId와 일치하는 id를 갖는 요소만 삭제한 새로운 배열
+      setTodos(todos.filter((todo) => todo.id !== targetId));
+    };
+
     return (
         <div className="App">
             <Header />
             <Editor onCreate={onCreate} />
-            <List todos={todos} onUpdate={onUpdate} />
+            <List todos={todos} onUpdate={onUpdate} onDelete={onDelete}/>
         </div>
     );
 };
