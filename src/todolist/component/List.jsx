@@ -1,5 +1,5 @@
 import "./List.css";
-import {useState} from "react";
+import {useState, useMemo} from "react";
 import TodoItem from "./TodoItem";
 
 const List = ({todos, onUpdate, onDelete}) => {
@@ -22,7 +22,8 @@ const List = ({todos, onUpdate, onDelete}) => {
 
     const filteredTodos = getFilteredData();
 
-    const getAnalizedData = () => {
+    const {totalCount, doneCount, notDoneCount} = useMemo(()=>{
+        console.log("getAnalizedData 호출!")
         const totalCount = todos.length;
         const doneCount = todos.filter((todo)=>todo.isDone
         ).length;
@@ -33,12 +34,11 @@ const List = ({todos, onUpdate, onDelete}) => {
             doneCount,
             notDoneCount
         }
+    },[todos])
 
-    };
-
-     const {totalCount, doneCount, notDoneCount} =
+     /*const {totalCount, doneCount, notDoneCount} =
          getAnalizedData();
-
+*/
     return (
         <div className="List">
             <h4>Todo List 🌱</h4>
