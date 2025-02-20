@@ -2,7 +2,7 @@ import Header from "../component/Header";
 import Editor from "../component/Editor";
 import List from "../component/List";
 import "./Todolist.css";
-import {useRef, useReducer, useCallback} from "react";
+import {useRef, useReducer, useCallback, createContext} from "react";
 
 const mockData=[
     {
@@ -24,6 +24,7 @@ const mockData=[
         date: new Date().getTime(),
     },
 ];
+
 function reducer(state,action){
     switch (action.type){
         case "CREATE": return [action.data, ...state];
@@ -38,6 +39,9 @@ function reducer(state,action){
         default: return state;
     }
 }
+
+export const ToDoContext = createContext();
+
 const Todolist = () => {
 
     const [todos, dispatch] = useReducer(reducer,mockData);
@@ -76,9 +80,13 @@ const Todolist = () => {
 
     return (
         <div className="App">
-            <Header />
-            <Editor onCreate={onCreate} />
-            <List todos={todos} onUpdate={onUpdate} onDelete={onDelete}/>
+            <ToDoContext.Provider value={
+                {todos, onCreate, onUpdate, onDelete,}
+            }>
+                <Header />
+                <Editor />
+                <List todos={todos} onUpdate={onUpdate} onDelete={onDelete}/>
+            </ToDoContext.Provider>
         </div>
     );
 };
