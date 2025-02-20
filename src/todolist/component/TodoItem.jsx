@@ -34,6 +34,7 @@ const TodoItem = ({
     );
 };
 
+//고차 컴포넌트 (HOC)
 export default memo(TodoItem, (prevProps,nextProps) => {
     //반환값에 따라, Props가 바뀌었는지 안바뀌었는지 판단
     //T -> Props 바뀌지 않음 -> 리렌더링 X
