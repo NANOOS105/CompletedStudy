@@ -2,7 +2,7 @@ import Header from "../component/Header";
 import Editor from "../component/Editor";
 import List from "../component/List";
 import "./Todolist.css";
-import {useRef, useReducer, useCallback, createContext} from "react";
+import {useRef, useReducer, useCallback, createContext, useMemo} from "react";
 
 const mockData=[
     {
@@ -40,11 +40,12 @@ function reducer(state,action){
     }
 }
 
-export const ToDoContext = createContext();
+export const TodosStateContext = createContext();
+export const TodosDispatchContext = createContext();
 
 const Todolist = () => {
 
-    const [todos, dispatch] = useReducer(reducer,mockData);
+    const [todos, dispatch] = useReducer(reducer, mockData);
     const idRef = useRef(3);
 
     const onCreate = useCallback((content) => {
@@ -78,15 +79,22 @@ const Todolist = () => {
 
     }, []);
 
+    const memoizedDispatch = useMemo(() => {
+        return {
+            onCreate,
+            onDelete,
+            onUpdate};
+    },[]);
+
     return (
         <div className="App">
-            <ToDoContext.Provider value={
-                {todos, onCreate, onUpdate, onDelete,}
-            }>
-                <Header />
-                <Editor />
-                <List todos={todos} onUpdate={onUpdate} onDelete={onDelete}/>
-            </ToDoContext.Provider>
+            <Header />
+            <TodosStateContext.Provider value={todos}>
+                <TodosDispatchContext.Provider value={memoizedDispatch}>
+                    <Editor />
+                    <List />
+                </TodosDispatchContext.Provider>
+            </TodosStateContext.Provider>
         </div>
     );
 };
