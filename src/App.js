@@ -4,11 +4,7 @@ import Home from "./pages/Home";
 import Diary from "./pages/Diary";
 import New from "./pages/New";
 import Notfound from "./pages/Notfound";
-import emotion1 from "./assets/emotion1.png"
-import emotion2 from "./assets/emotion2.png"
-import emotion3 from "./assets/emotion3.png"
-import emotion4 from "./assets/emotion4.png"
-import emotion5 from "./assets/emotion5.png"
+import {getEmotionImage} from "./util/get-emotion-image";
 
 // 1. "/" : 모든 일기를 조회하는 Home 페이지
 // 2. "/new" : 새로운 일기를 작성하는 New 페이지
@@ -22,6 +18,13 @@ function App() {
 
   return (
       <>
+          <div>
+              <img src={getEmotionImage(1)} />
+              <img src={getEmotionImage(2)} />
+              <img src={getEmotionImage(3)} />
+              <img src={getEmotionImage(4)} />
+              <img src={getEmotionImage(5)} />
+          </div>
         <div>
             <Link to={"/"}>Home</Link>
             <Link to={"/new"}>New</Link>
