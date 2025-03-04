@@ -19,6 +19,4 @@ export function getEmotionImage (emotionId){
         default:
             return null;
     }
-
-
 }
