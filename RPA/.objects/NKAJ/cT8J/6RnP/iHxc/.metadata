@@ -1,0 +1,14 @@
+﻿{
+  "Name": "Click '타자'(1)",
+  "Type": "Element",
+  "TaxonomyType": "Label",
+  "Id": "iHxcmSiWZEiJ2VeddheFdA",
+  "Reference": "Bc75pbkAxUqwhPQLI_6UOw/iHxcmSiWZEiJ2VeddheFdA",
+  "ParentRef": "Bc75pbkAxUqwhPQLI_6UOw/6RnPcal41UOs_KkG3OEr8w",
+  "Created": "2024-08-16T05:26:48.3185387Z",
+  "Updated": "2024-08-16T05:26:48.3185387Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=24.10.0.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=24.10.3.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}
